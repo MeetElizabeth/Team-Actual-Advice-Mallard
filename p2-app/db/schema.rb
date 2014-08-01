@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140801145745) do
     t.string   "email"
     t.string   "password_digest"
     t.boolean  "admin"
+    t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
