@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   has_many :games, dependent: :destroy
   has_many :animals, dependent: :destroy
 
@@ -8,7 +11,7 @@ class User < ActiveRecord::Base
 
   after_initialize :defaults
   def defaults
-  	self.score = 0
-  	self.admin = false
+    self.score = 0
   end
+
 end
