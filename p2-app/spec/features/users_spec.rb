@@ -17,21 +17,16 @@ describe "Users" do
 
       click_button 'Sign Up'
 
+      visit user_path(user)
+
+      within '#session' do
+        expect(page).to have_content user.username
+        expect(page).to have_content user.first_name
+        expect(page).to have_content user.email
+        expect(page).to have_content user.birthday
+      end
+
     end
-
-  end
-
-
-  it "should automatically take the user to their show page after sign-up" do
-
-    visit user_path
-
-    session
-    expect(page).to have_content @user.username
-    expect(page).to have_content @user.first_name
-    expect(page).to have_content @user.email
-    expect(page).to have_content @user.birthday
-
 
   end
 
