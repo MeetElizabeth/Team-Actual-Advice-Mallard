@@ -41,17 +41,4 @@ ActiveRecord::Schema.define(version: 20140801145745) do
     t.integer "user_id"
   end
 
-  create_table "users", force: true do |t|
-    t.text     "avatar"
-    t.string   "first_name"
-    t.integer  "score"
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.boolean  "admin"
-    t.date     "birthday"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

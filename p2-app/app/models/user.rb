@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_secure_password
 
   has_many :games, dependent: :destroy
   has_many :animals, dependent: :destroy
