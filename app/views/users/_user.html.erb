@@ -1,4 +1,5 @@
 <div class="user-info" id="<%= dom_id(user) %>">
+  <div id="toggle-button">X</div>
   <div id="avatar">
     <img src="<%= user.avatar %>"/>
   </div>
@@ -6,8 +7,9 @@
     <h2><%= user.first_name %></h2>
     <h4><%= user.username %></h3>
     <p><%= user.email %> | <%= user.birthday %></p>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   </div>
   <div id="score">
-  <%= user.score %> PTS
+    <%= user.score %> PTS
   </div>
 </div>
