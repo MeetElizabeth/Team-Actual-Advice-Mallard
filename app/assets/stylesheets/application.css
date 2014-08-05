@@ -28,42 +28,83 @@ span.blank-space {
 
 #main {
 	margin: 0 auto;
-	width: 700px; 
-	height: 700px;
 }
 
 .environment {
 	margin: 5px auto;
+	margin-bottom: 0;
 	border: 5px solid #878155;
-	height: 250px;
-	width: 330px;
+	height: 100%;
+	width: 46%;
 	display: inline-block;
 	text-decoration: bolder;
 	clear: both;
+	position: relative;
+}
+
+.clear {
+	clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
 }
 
 .clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+/*.clearfix:after {
   content: "";
   display: table; 
   clear: both; 
 }
+*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 .levels {
 	margin: 0 auto;
+	width: 100%;
+	height: auto;
 	text-align: center;
 }
+
+.game_list {
+	/*display: none;*/
+}
+
+/*.octagon {
+	display: none;
+	margin: 12px;
+	display: inline-block;
+	width: 112px;
+	height: 112px;
+	font-size: 22px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+
+}*/
 
 .level {
 	text-align: center;
 	margin: 20px auto;
 	display: inline-block;
-	width:90px;
-	height:90px;
-	border-radius:50px;
-	font-size:19px;
-	color:#fff;
-	line-height:50px;
-	text-align:center;
+	width: 112px;
+	height: 112px;
+	border-radius: 70px;
+	font-size: 22px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
 	background: #fcecfc; /* Old browsers */
 	background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 50%, #fd89d7 71%, #fd89d7 71%, #ff7cd8 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcecfc), color-stop(50%,#fba6e1), color-stop(71%,#fd89d7), color-stop(71%,#fd89d7), color-stop(100%,#ff7cd8)); /* Chrome,Safari4+ */
@@ -75,4 +116,47 @@ span.blank-space {
 
 }
 
+span {
+	z-index: 1;
+	position: relative;
 
+}
+
+.octagon {
+	background: #7DD355;
+	position: relative;
+	z-index: 1;
+	/*display: none;*/
+	margin: 6px;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	font-size: 22px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+}
+
+.octagon:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-bottom: 29px solid #7DD355;
+	border-left: 29px solid white;
+	border-right: 29px solid white;
+	width: 42px;
+	height: 0;
+}
+
+.octagon:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-top: 29px solid #7DD355;
+	border-left: 29px solid white;
+	border-right: 29px solid white;
+	width: 42px;
+	height: 0;
+}

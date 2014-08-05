@@ -25,7 +25,20 @@ $(function() {
     $('.letter').css('cursor', 'grabbing');
   });
 
-  // $('.level').getContext("2d").beginPath().arc(95,50,40,0,2*Math.PI).stroke();
+  $('body').on('click', '.level', showGames);
 
 })
 
+function showGames(){
+	var level = $(this);
+	var levels = level.parent();
+	
+	var gameList = $('<article class="game_list">');
+	var game1 = $('<div class="octagon">').text('Game 1');
+	var game2 =	$('<div class="octagon">').text('Game 2');
+	var game3 =	$('<div class="octagon">').text('Game 3');
+
+	gameList.append(game1).append(game2).append(game3);
+			
+	level.closest('.environment').find('.game_list').empty().append(gameList);
+}
