@@ -4,8 +4,10 @@ class CreateAnimals < ActiveRecord::Migration
       t.string :name
       t.string :environment
       t.text :image
-      t.text :facts
-      t.text :sound
+      t.text :fact_1
+      t.text :fact_2
+      t.text :fact_3
+      t.text :information
       t.timestamps
     end
   end

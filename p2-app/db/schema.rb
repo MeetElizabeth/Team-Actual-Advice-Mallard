@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20140801145745) do
     t.string   "name"
     t.string   "environment"
     t.text     "image"
-    t.text     "facts"
-    t.text     "sound"
+    t.text     "fact_1"
+    t.text     "fact_2"
+    t.text     "fact_3"
+    t.text     "information"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
