@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// going to have to be moved to games/show.js maybe?
+$(function() {
+  console.log('howdy');
+  $('.letter').draggable({ cursor: "move", snap: $('.blank-space') });
+  $('.blank-space').droppable();
+  $('.letter').mousedown(function(){
+    $('.letter').css('cursor', 'grabbing');
+  });
+})

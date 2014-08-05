@@ -1,6 +1,6 @@
 class Pixabay < ActiveRecord::Base
-
   def self.get_image(animal_name)
+
     username = ENV["PIXABAY_USERNAME"]
     api_key = ENV["PIXABAY_KEY"]
     api_url = "http://pixabay.com/api/?username=#{username}&key=#{api_key}&search_term=#{animal_name}&image_type=illustration"
