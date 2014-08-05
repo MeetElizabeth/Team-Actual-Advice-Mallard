@@ -24,4 +24,8 @@ $(function() {
   $('.letter').mousedown(function(){
     $('.letter').css('cursor', 'grabbing');
   });
+
+  // $('.level').getContext("2d").beginPath().arc(95,50,40,0,2*Math.PI).stroke();
+
 })
+
