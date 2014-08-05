@@ -13,6 +13,8 @@ class Game < ActiveRecord::Base
     return letter_array.shuffle
   end
 
+  def check_letters
     
+  end
 
 end
