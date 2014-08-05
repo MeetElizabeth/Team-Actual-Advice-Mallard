@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function() {
+  console.log('howdy');
+  $('.letter').draggable({ cursor: "move", snap: $('.blank-space') });
+  $('.blank-space').droppable();
+  $('.letter').mousedown(function(){
+    $('.letter').css('cursor', 'grabbing');
+  });
+})

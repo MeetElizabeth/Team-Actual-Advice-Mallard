@@ -1,0 +1,12 @@
+<div class="guess-area">
+  <% @animal.name.length.times do  %>
+    <span class="blank-space">_</span>
+  <% end %>
+</div>
+<div class="letter-bank">
+  <% index = 1 %>
+  <% @playable_letters.each do |letter| %>
+    <span class="letter" id="letter-<%= index %>"><%= letter %></span>
+    <% index += 1 %>
+  <% end %>
+</div>
