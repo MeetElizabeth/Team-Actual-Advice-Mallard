@@ -6,7 +6,7 @@ animal_info.each do |animals|
   Animal.create!({
     name: animals[0],
     environment: animals[1],
-    image: Pixabay.get_image(animals[0]),
+    image: animals[2],
     fact_1: animals[3],
     fact_2: animals[4],
     fact_3: animals[5],
