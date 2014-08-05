@@ -1,0 +1,13 @@
+<div class="user-info" id="<%= dom_id(user) %>">
+  <div id="avatar">
+    <img src="<%= user.avatar %>"/>
+  </div>
+  <div id="info">
+    <h2><%= user.first_name %></h2>
+    <h4><%= user.username %></h3>
+    <p><%= user.email %> | <%= user.birthday %></p>
+  </div>
+  <div id="score">
+  <%= user.score %> PTS
+  </div>
+</div>

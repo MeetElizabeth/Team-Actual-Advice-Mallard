@@ -9,6 +9,19 @@
 <body>
 <h1>Mallard Team Yayyy!!!</h1>
 
+  <div id="container">
+    <div class="profile-sidebar">
+      <div id="toggle-button">X</div>
+      <%= render current_user %>
+      <div class="my-animals">
+        <div id="jungle"></div>
+        <div id="forest"></div>
+        <div id="farm"></div>
+        <div id="savanna"></div>
+      </div>
+    </div>
+  </div>
+
   <% if user_signed_in? %>
     <%= current_user.email %>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

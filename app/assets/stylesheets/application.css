@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.profile-sidebar {
+  background-color: green;
+  width: 400px;
+  overflow-y: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
