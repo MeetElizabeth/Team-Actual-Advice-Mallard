@@ -83,13 +83,10 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.0)
     multi_json (1.10.1)
-<<<<<<< HEAD
     multi_xml (0.5.5)
-=======
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
->>>>>>> debf36dd6c7d6c1cdff432ae6dc9323adef1c593
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.0)
@@ -193,20 +190,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   awesome_print
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
   httparty
-=======
   better_errors
   binding_of_caller
   capybara (~> 2.4.0)
   coffee-rails (~> 4.0.0)
   devise
->>>>>>> debf36dd6c7d6c1cdff432ae6dc9323adef1c593
   jbuilder (~> 2.0)
   jquery-rails
   pg
