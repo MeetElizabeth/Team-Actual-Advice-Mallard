@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.boolean :admin
       t.date :birthday
+      t.boolean :completed
       t.timestamps
     end
   end

@@ -2,7 +2,7 @@ class Game < ActiveRecord::Base
   belongs_to :user
   has_one :animal
 
-## for populating guessable letters
+# for populating guessable letters
   def guessable_letters(animal)
     alphabet = *('a'..'z')
     letter_array = animal.name.downcase.split('')
@@ -11,10 +11,6 @@ class Game < ActiveRecord::Base
       letter_array.push(alphabet.sample)
     end
     return letter_array.shuffle
-  end
-
-  def check_letters
-    
   end
 
 end

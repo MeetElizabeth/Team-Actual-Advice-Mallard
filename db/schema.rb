@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140801145745) do
     t.text     "images"
     t.string   "words"
     t.string   "letters"
+    t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140801145745) do
     t.string   "password_digest"
     t.boolean  "admin"
     t.date     "birthday"
+    t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
