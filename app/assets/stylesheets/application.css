@@ -79,6 +79,7 @@ span.blank-space {
 
 .game_list {
 	/*display: none;*/
+	margin: 20px auto;
 }
 
 /*.octagon {
