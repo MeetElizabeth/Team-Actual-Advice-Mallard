@@ -10,44 +10,17 @@
   <div class="profile-sidebar"> <!-- sidebar -->
     <button id='close-profile' type="button">Close</button>
     <% if user_signed_in? %>
-    <%= render current_user %>
-      <div class="my-animals">
-        <div class="environment" id="jungle">
-          <h1>Jungle</h1>
-          <div id="collected">
-            <% @animal_list['jungle'].each do |animal| %>
-              <%= animal['name'] %>
-            <% end %>
-          </div>
-        </div>
-        <div class="environment" id="forest">
-          <h1>Forest</h1>
-          <div id="collected">
-            <%= @animal_list['forest'] %>
-          </div>
-        </div>
-        <div class="environment" id="farm">
-          <h1>Farm</h1>
-          <div id="collected">
-            <%= @animal_list['farm'] %>
-          </div>
-        </div>
-        <div class="environment" id="savanna">
-          <h1>Savanna</h1>
-          <div id="collected">
-            <%= @animal_list['savanna'] %>
-          </div>
-        </div>
-      </div>
+      <%= render current_user %>
+      <%= render 'users/animals' %>
     <% else %>
-      <%= link_to 'Sign in', new_user_session_path %>
-      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in', remote: true %>
+      <%= link_to 'Sign up', new_user_registration_path, :id => 'sign-up', remote: true %>
     <% end %>
-
-    <%= yield :sidebar %>
-
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= yield :sidebar %>
+
+
   </div>
 
   <div class="page-content"> <!-- wrapper for the content -->

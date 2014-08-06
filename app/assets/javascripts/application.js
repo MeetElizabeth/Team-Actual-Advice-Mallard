@@ -18,25 +18,37 @@
 $(document).ready(function(){
   console.log('Loaded, bro.');
 
+  sidebarOpen();
+  var openButton = $('#open-profile');
+  $(openButton).hide();
+
   $('.page-content').on('click', '#open-profile', openProfile);
   $('.profile-sidebar').on('click', '#close-profile', closeProfile);
-  $('.environment').on('click', 'h1', showAnimals);
-
-  $('#collected').hide();
 })
 
-var openProfile = function() {
-  var mainPage = $(this).parent();
+
+var sidebarOpen = function() {
+  var mainPage = $('.page-content');
   $(mainPage).css('transition', 'all 0.6s');
   $(mainPage).css({"-webkit-transform":"translate(400px)"});
 }
 
-var closeProfile = function() {
-  var mainPage = $('.page-content');
+var openProfile = function() {
+  var mainPage = $(this).parent();
+  var openButton = $(this);
+  var closeButton = $('#close-profile');
   $(mainPage).css('transition', 'all 0.6s');
-  $(mainPage).css({"-webkit-transform":"translate(0px)"});
+  $(mainPage).css({"-webkit-transform":"translate(400px)"});
+  $(openButton).hide();
+  $(closeButton).show();
 }
 
-var showAnimals = function() {
-  $('#collected').show();
+var closeProfile = function() {
+  var mainPage = $('.page-content');
+  var closeButton = $(this);
+  var openButton = $('#open-profile');
+  $(mainPage).css('transition', 'all 0.6s');
+  $(mainPage).css({"-webkit-transform":"translate(0px)"});
+  $(closeButton).hide();
+  $(openButton).show();
 }
