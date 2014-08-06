@@ -177,19 +177,6 @@ span.blank-space {
 	text-align: center;
 }
 
-/*.octagon {
-	display: none;
-	margin: 12px;
-	display: inline-block;
-	width: 112px;
-	height: 112px;
-	font-size: 22px;
-	color: #fff;
-	line-height: 50px;
-	text-align: center;
-
-}*/
-
 .level {
 	text-align: center;
 	margin: 20px auto;
@@ -256,3 +243,15 @@ span {
 	width: 42px;
 	height: 0;
 }
+
+/* GAME HINTS */
+.hint {
+	display: none;
+}
+
+
+
+
+
+
+

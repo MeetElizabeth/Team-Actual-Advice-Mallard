@@ -145,13 +145,27 @@ function checkSolution() {
 
 
 function countdownTimer() {
-  var target_time = 60;
+  var target_time = 120;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
       var seconds_left = (target_time - time_elapsed);
       if (seconds_left >= 0) {
         countdown.innerText = seconds_left;
+
+        if (seconds_left <= 120){
+          $('.first_hint').css('display', 'block');
+        };
+        if ( seconds_left <= 90) {
+          $('.second_hint').css('display', 'block');
+        }
+        if ( seconds_left <= 60) {
+          $('.third_hint').css('display', 'block');
+        }
+        if ( seconds_left <= 30) {
+          $('.image_hint').css('display', 'block');
+        }
+
         time_elapsed += 1;
         if (gameCompleted === true) {
           clearInterval(timer);

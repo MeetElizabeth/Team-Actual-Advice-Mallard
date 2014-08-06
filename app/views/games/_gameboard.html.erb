@@ -1,5 +1,11 @@
+<h2>Hints</h2>
+<ol class='hints'>
+  <li class='hint first_hint'>First Hint: <br><%= @animal.fact_1 %></li>
+  <li class='hint second_hint'>Second Hint: <br><%= @animal.fact_2 %></li>
+  <li class='hint third_hint'>Third Hint: <br><%= @animal.fact_3 %></li>
+  <li class='hint image_hint'>Last Hint <br><%= image_tag(@animal.image, class: "animal-image") %></li>
+</ol>
 
-<%= image_tag(@animal.image, class: "animal-image") %>
 <div class="countdown-container">
   <span id="countdown"></span>
 </div>
