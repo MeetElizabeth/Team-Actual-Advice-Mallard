@@ -18,7 +18,8 @@ animal_info.each do |animals|
     fact_1: animals[3],
     fact_2: animals[4],
     fact_3: animals[5],
-    information: animals[6]
+    information: animals[6],
+    level: animals[7]
     })
   end
 
