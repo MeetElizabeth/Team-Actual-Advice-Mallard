@@ -19,11 +19,40 @@
 // going to have to be moved to games/show.js maybe?
 $(function() {
   console.log('what does the fox say?');
+
+	showCurrentLevel();
+  $('body').on('click', '.level', showGames);
+  $('body').on('click', 'button', backToAllLevel);
   gamePlay();
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
 })
 
+var currentLevel = 1;
+function showCurrentLevel (){
+	$('.current_level').append(currentLevel);
+}
+
+function backToAllLevel (){
+	$(this).siblings('.game_list').hide();
+	$(this).siblings('.levels').show();
+}
+
+function showGames(){
+	var level = $(this);
+
+	var environment = level.closest('.environment');
+	var gameList = $('<article class="game_list">');
+
+	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
+	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
+	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
+
+	level.css('background', 'yellow').css('color', 'black')
+	level.parent().hide();
+	gameList.append(game1).append(game2).append(game3);
+	environment.append(gameList);
+}
 
 function gamePlay() {
   var numLetters = $('.letter-bank').children().length;
