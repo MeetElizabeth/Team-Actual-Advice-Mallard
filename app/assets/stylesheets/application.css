@@ -22,14 +22,14 @@ body {
 
 .page-content {
   position: relative;
-  background-color: orange;
+  background-color: #f3efe0;
   height: 100vh;
   overflow: hidden;
   z-index: 1;
 }
 
 .profile-sidebar {
-  background-color: green;
+  background-color: #48a770;
   width: 400px;
   height: 100%;
   overflow: hidden;
@@ -37,6 +37,43 @@ body {
   top: 0;
   bottom: 0;
   z-index: 0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+p #user-score {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #fff;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+button {
+  background-color: #388a5a;
+  cursor: pointer;
+  font-weight: bold;
+  border-style: none;
 }
 
 #close-profile {
@@ -58,7 +95,7 @@ body {
 }
 
 #avatar {
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 #avatar img {
@@ -67,16 +104,16 @@ body {
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  border: 2px solid black;
+  border: 5px solid DimGray;
 }
 
 #score {
   margin-top: 15px;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
+  border-top: 5px solid #388a5a;
+  border-bottom: 5px solid #388a5a;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: blue;
+  background-color: #388a5a;
 }
 
 .environment h1 {
@@ -91,7 +128,7 @@ span.blank-space {
 .letter {
   cursor: grab;
 	font-size: 55px;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 #main {
@@ -152,8 +189,8 @@ span.blank-space {
 }
 /*.clearfix:after {
   content: "";
-  display: table; 
-  clear: both; 
+  display: table;
+  clear: both;
 }
 */
 * {

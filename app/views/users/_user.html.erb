@@ -3,12 +3,12 @@
     <img src="<%= user.avatar %>"/>
   </div>
   <div id="info">
-    <h2><%= user.first_name %></h2>
+    <h1>Hello, <%= user.first_name %>!</h1>
     <h4><%= user.username %></h3>
-    <p><%= user.email %> | <%= user.birthday %></p>
+    <p><%= user.email %><br><%= user.birthday %></p>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   </div>
   <div id="score">
-    <%= user.score %> PTS
+    <h1 id="user-score"><%= user.score %> PTS</h1>
   </div>
 </div>
