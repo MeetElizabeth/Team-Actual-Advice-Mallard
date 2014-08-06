@@ -9,6 +9,7 @@ class CreateAnimals < ActiveRecord::Migration
       t.text :fact_3
       t.text :information
       t.timestamps
+      t.references :games
     end
   end
 end

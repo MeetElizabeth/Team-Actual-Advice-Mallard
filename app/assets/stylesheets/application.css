@@ -14,14 +14,72 @@
  *= require_self
  */
 
-
-
-
-span.blank-space {
-  font-size: 50px;
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-.letter {
-  font-size: 50px;
-  cursor: grab;
+.page-content {
+  position: relative;
+  background-color: orange;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-sidebar {
+  background-color: green;
+  width: 400px;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+#close-profile {
+  float: right;
+  padding: 10px;
+  position: relative;
+}
+
+#open-profile {
+  float: left;
+  padding: 10px;
+  position: relative;
+}
+
+.user-info {
+  text-align: center;
+  vertical-align: center;
+  background-color: gray;
+}
+
+#avatar {
+  padding-top: 20px;
+}
+
+#avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border: 2px solid black;
+}
+
+#score {
+  margin-top: 15px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: blue;
+}
+
+.environment h1 {
+  text-align: center;
+  vertical-align: center;
 }

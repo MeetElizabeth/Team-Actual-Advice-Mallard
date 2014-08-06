@@ -9,8 +9,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Mallard Team Yayyy!!!</h1>
-<%= yield %>
+  <div class="profile-sidebar"> <!-- sidebar -->
+    <button id='close-profile' type="button">Close</button>
+    <% if user_signed_in? %>
+      <%= render current_user %>
+      <%= render 'users/animals' %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in' %>
+      <%= link_to 'Sign up', new_user_registration_path, :id => 'sign-up' %>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield :sidebar %>
 
+
+  </div>
+
+  <div class="page-content"> <!-- wrapper for the content -->
+    <button id='open-profile' type="button">Open</button>
+      <div class="main"> <!-- actual content -->
+        <%= yield %>
+      </div>
+  </div>
 </body>
 </html>
