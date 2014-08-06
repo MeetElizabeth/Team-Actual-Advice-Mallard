@@ -21,8 +21,10 @@
 </div>
 <div class="answer" id="<%= @animal.name.downcase %>" style="display: none;"></div>
 <div>
-<button id="check-button">CHECK</button>
+  <button id="check-button">CHECK</button>
+  <%= link_to 'REPLAY', game_path %>
 </div>
+
 <!-- for popup dialog -->
 <div id="completed-dialog" title="Hooray!">
   <p>You did it!</p>

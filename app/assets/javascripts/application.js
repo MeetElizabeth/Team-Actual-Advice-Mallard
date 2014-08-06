@@ -22,6 +22,7 @@ var readyFunc = function() {
   $('body').on('click', '.level', showGames);
   $('body').on('click', 'button', backToAllLevel);
   gamePlay();
+
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
 
@@ -112,6 +113,7 @@ function gamePlay() {
     });
   }
 }
+
 var gameCompleted = false;
 
 function checkSolution() {
