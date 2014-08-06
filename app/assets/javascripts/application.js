@@ -18,12 +18,32 @@
 
 // going to have to be moved to games/show.js maybe?
 $(function() {
-  console.log('what does the fox say?');
+
+  $('body').on('click', '.level', showGames);
   gamePlay();
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
+
 })
 
+function showGames(){
+	var level = $(this);
+
+	var environment = level.closest('.environment');
+	var gameList = $('<article class="game_list">');
+	
+	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
+	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
+	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
+
+//add more function to count the level
+	// var currentLevel = $('<h4>').text('You are on level: ')
+
+	level.parent().remove();
+	gameList.append(game1).append(game2).append(game3);
+
+	environment.append(gameList);
+}
 
 function gamePlay() {
   var numLetters = $('.letter-bank').children().length;
