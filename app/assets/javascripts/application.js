@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+var readyFunc = function() {
   console.log('Loaded, bro.');
 
   sidebarOpen();
@@ -24,8 +24,10 @@ $(document).ready(function(){
 
   $('.page-content').on('click', '#open-profile', openProfile);
   $('.profile-sidebar').on('click', '#close-profile', closeProfile);
-})
+};
 
+$(document).ready(readyFunc);
+$(document).on('page:load', readyFunc);
 
 var sidebarOpen = function() {
   var mainPage = $('.page-content');

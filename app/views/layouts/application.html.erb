@@ -13,8 +13,8 @@
       <%= render current_user %>
       <%= render 'users/animals' %>
     <% else %>
-      <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in', remote: true %>
-      <%= link_to 'Sign up', new_user_registration_path, :id => 'sign-up', remote: true %>
+      <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in' %>
+      <%= link_to 'Sign up', new_user_registration_path, :id => 'sign-up' %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
