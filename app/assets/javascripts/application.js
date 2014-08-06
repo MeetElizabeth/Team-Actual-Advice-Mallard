@@ -31,14 +31,17 @@ $(function() {
 
 function showGames(){
 	var level = $(this);
-	
+	var environmentName = level.closest('.environment').attr('id').toUpperCase();
+	var levelName = level.text();
 	var gameList = $('<article class="game_list">');
-	console.log('hey')
+	
 	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
 	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
 	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
 
+	gameList.append($('<h2>').text(environmentName));
+	gameList.append($('<h3>').text(levelName));
 	gameList.append(game1).append(game2).append(game3);
 			
-	level.closest('.environment').append(gameList);
+	$('body').append(gameList);
 }
