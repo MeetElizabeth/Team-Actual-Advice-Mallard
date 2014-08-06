@@ -19,12 +19,24 @@
 // going to have to be moved to games/show.js maybe?
 $(function() {
 
+	showCurrentLevel();
   $('body').on('click', '.level', showGames);
+  $('body').on('click', 'button', backToAllLevel);
   gamePlay();
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
 
 })
+
+var currentLevel = 1;
+function showCurrentLevel (){
+	$('.current_level').append(currentLevel);
+}
+
+function backToAllLevel (){
+	$(this).siblings('.game_list').hide();
+	$(this).siblings('.levels').show();
+}
 
 function showGames(){
 	var level = $(this);
@@ -36,12 +48,9 @@ function showGames(){
 	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
 	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
 
-//add more function to count the level
-	// var currentLevel = $('<h4>').text('You are on level: ')
-
-	level.parent().remove();
+	level.css('background', 'yellow').css('color', 'black')
+	level.parent().hide();
 	gameList.append(game1).append(game2).append(game3);
-
 	environment.append(gameList);
 }
 
