@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :authentication_keys => [:username]
 
   has_many :games, dependent: :destroy
   has_many :animals, through: :games, dependent: :destroy
