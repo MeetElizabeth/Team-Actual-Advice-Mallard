@@ -6,6 +6,7 @@ class CreateGames < ActiveRecord::Migration
       t.text :images
       t.string :words
       t.string :letters
+      t.boolean :completed
       t.timestamps
     end
   end

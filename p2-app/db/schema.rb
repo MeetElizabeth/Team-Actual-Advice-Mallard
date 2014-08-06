@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140801145745) do
     t.text     "images"
     t.string   "words"
     t.string   "letters"
+    t.boolean  "completed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
