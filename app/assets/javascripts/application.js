@@ -18,32 +18,12 @@
 
 // going to have to be moved to games/show.js maybe?
 $(function() {
-
-  $('body').on('click', '.level', showGames);
+  console.log('what does the fox say?');
   gamePlay();
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
-
 })
 
-function showGames(){
-	var level = $(this);
-
-	var environment = level.closest('.environment');
-	var gameList = $('<article class="game_list">');
-	
-	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
-	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
-	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
-
-//add more function to count the level
-	// var currentLevel = $('<h4>').text('You are on level: ')
-
-	level.parent().remove();
-	gameList.append(game1).append(game2).append(game3);
-
-	environment.append(gameList);
-}
 
 function gamePlay() {
   var numLetters = $('.letter-bank').children().length;
@@ -62,10 +42,14 @@ function gamePlay() {
       drop: function (event, ui) {
         var draggedLetter = ui.draggable.text();
         $(this).replaceWith(ui.draggable)
+        if (numSpaces === $('.guess-area').children('.letter').length) {
+          setTimeout(checkSolution(), 3000);
+        }
       }
     });
   }
 }
+var gameCompleted = false;
 
 function checkSolution() {
   var guessArea = $('.guess-area').children();
@@ -75,13 +59,25 @@ function checkSolution() {
     guess += guessArea.eq(i).text();
   };
   if (guess === answer) {
-    alert('You did it!');
-
+    gameCompleted = true;
+    var dialog = $( "#completed-dialog" ).dialog({
+         autoOpen: true,
+         height: 300,
+         width: 350,
+         modal: true,
+         buttons: {
+           "Back to games": '',
+           Close: function() {
+             dialog.dialog( "close" );
+           }
+         },
+       });
   } else {
     console.log('idiot');
     alert('Try Again');
   }
 }
+
 
 function countdownTimer() {
   var target_time = 60;
@@ -92,10 +88,15 @@ function countdownTimer() {
       if (seconds_left >= 0) {
         countdown.innerText = seconds_left;
         time_elapsed += 1;
+        if (gameCompleted === true) {
+          clearInterval(timer);
+        }
       } else {
         clearInterval(timer);
-        alert('game over.');
       }
   }, 1000);
-  $('body').on('click', '#check-button', clearInterval(timer));
+}
+
+function restartGame() {
+
 }
