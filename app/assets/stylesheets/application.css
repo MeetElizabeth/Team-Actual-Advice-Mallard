@@ -32,10 +32,9 @@ span.blank-space {
 }
 
 .environment {
-	margin: 5px auto;
-	margin-bottom: 0;
+	margin: 20px auto;
 	border: 5px solid #878155;
-	height: 250px;
+	height: auto;
 	width: 46%;
 	display: inline-block;
 	text-decoration: bolder;
@@ -57,13 +56,13 @@ span.blank-space {
 
 #forest {
 	position: absolute;
-	top: 275px;
+	top: 300px;
 	left: 0%;
 }
 
 #farm {
 	position: absolute;
-	top: 275px;
+	top: 300px;
 	left: 50%;
 }
 
@@ -104,7 +103,7 @@ span.blank-space {
 }
 
 .game_list {
-	margin: 0 auto;
+	margin: 30px auto;
 	width: 100%;
 	height: auto;
 	text-align: center;
