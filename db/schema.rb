@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140804222218) do
     t.text     "information"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "games_id"
   end
 
   create_table "games", force: true do |t|

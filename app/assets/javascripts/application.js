@@ -14,3 +14,43 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var readyFunc = function() {
+  console.log('Loaded, bro.');
+
+  sidebarOpen();
+  var openButton = $('#open-profile');
+  $(openButton).hide();
+
+  $('.page-content').on('click', '#open-profile', openProfile);
+  $('.profile-sidebar').on('click', '#close-profile', closeProfile);
+};
+
+$(document).ready(readyFunc);
+$(document).on('page:load', readyFunc);
+
+var sidebarOpen = function() {
+  var mainPage = $('.page-content');
+  $(mainPage).css('transition', 'all 0.6s');
+  $(mainPage).css({"-webkit-transform":"translate(400px)"});
+}
+
+var openProfile = function() {
+  var mainPage = $(this).parent();
+  var openButton = $(this);
+  var closeButton = $('#close-profile');
+  $(mainPage).css('transition', 'all 0.6s');
+  $(mainPage).css({"-webkit-transform":"translate(400px)"});
+  $(openButton).hide();
+  $(closeButton).show();
+}
+
+var closeProfile = function() {
+  var mainPage = $('.page-content');
+  var closeButton = $(this);
+  var openButton = $('#open-profile');
+  $(mainPage).css('transition', 'all 0.6s');
+  $(mainPage).css({"-webkit-transform":"translate(0px)"});
+  $(closeButton).hide();
+  $(openButton).show();
+}
