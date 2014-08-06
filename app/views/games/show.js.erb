@@ -1,4 +1,5 @@
-<%= j(render template: "show.html") %>
-$('.letter').on('hover', css('cursor', 'move'))
+var gameboard = $('<%= j(render gameboard) %>');
+$('body').append(gameboard);
+$('.letter').on('hover', css('cursor', 'move'));
 $('.letter').draggable();
 $('.blank-space').droppable();
