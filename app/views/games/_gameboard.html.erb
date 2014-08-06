@@ -1,12 +1,30 @@
+
+<%= image_tag(@animal.image, class: "animal-image") %>
+<div class="countdown-container">
+  <span id="countdown"></span>
+</div>
 <div class="guess-area">
-  <% @animal.name.length.times do  %>
-    <span class="blank-space">_</span>
+  <% space_index = 1 %>
+  <% @animal.name.downcase.split('').each do |letter|  %>
+    <span class="blank-space" id="space-<%= space_index %>">_</span>
+    <% space_index += 1 %>
   <% end %>
 </div>
+<br>
+<br>
 <div class="letter-bank">
   <% index = 1 %>
   <% @playable_letters.each do |letter| %>
     <span class="letter" id="letter-<%= index %>"><%= letter %></span>
     <% index += 1 %>
   <% end %>
+</div>
+<div class="answer" id="<%= @animal.name.downcase %>" style="display: none;"></div>
+<div>
+<button id="check-button">CHECK</button>
+</div>
+<!-- for popup dialog -->
+<div id="completed-dialog" title="Hooray!">
+  <p>You did it!</p>
+  <p>The animal was <%= @animal.name.downcase %></p>
 </div>

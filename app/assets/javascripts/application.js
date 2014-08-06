@@ -18,6 +18,13 @@
 var readyFunc = function() {
   console.log('Loaded, bro.');
 
+  showCurrentLevel();
+  $('body').on('click', '.level', showGames);
+  $('body').on('click', 'button', backToAllLevel);
+  gamePlay();
+  countdownTimer();
+  $('body').on('click', '#check-button', checkSolution);
+
   sidebarOpen();
   var openButton = $('#open-profile');
   $(openButton).hide();
@@ -55,3 +62,104 @@ var closeProfile = function() {
   $(openButton).show();
 }
 
+var currentLevel = 1;
+function showCurrentLevel (){
+	$('.current_level').append(currentLevel);
+}
+
+function backToAllLevel (){
+	$(this).siblings('.game_list').hide();
+	$(this).siblings('.levels').show();
+}
+
+function showGames(){
+	var level = $(this);
+
+	var environment = level.closest('.environment');
+	var gameList = $('<article class="game_list">');
+
+	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
+	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
+	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
+
+	level.css('background', 'yellow').css('color', 'black')
+	level.parent().hide();
+	gameList.append(game1).append(game2).append(game3);
+	environment.append(gameList);
+}
+
+function gamePlay() {
+  var numLetters = $('.letter-bank').children().length;
+  var numSpaces = $('.guess-area').children().length;
+  var draggedLetter;
+  for (var i = 0; i < numLetters; i++) {
+    $('#letter-'+(i+1)+'').draggable({
+      cursor: 'move',
+      revert: true
+    })
+  }
+  for (var b = 0; b < numSpaces; b++) {
+    $('#space-'+(b+1)+'').droppable({
+      accept: '.letter',
+      tolerance: 'fit',
+      drop: function (event, ui) {
+        var draggedLetter = ui.draggable.text();
+        $(this).replaceWith(ui.draggable)
+        if (numSpaces === $('.guess-area').children('.letter').length) {
+          setTimeout(checkSolution(), 3000);
+        }
+      }
+    });
+  }
+}
+var gameCompleted = false;
+
+function checkSolution() {
+  var guessArea = $('.guess-area').children();
+  var answer = $('.answer').attr('id');
+  var guess = '';
+  for (var i = 0; i < guessArea.length; i++) {
+    guess += guessArea.eq(i).text();
+  };
+  if (guess === answer) {
+    gameCompleted = true;
+    var dialog = $( "#completed-dialog" ).dialog({
+         autoOpen: true,
+         height: 300,
+         width: 350,
+         modal: true,
+         buttons: {
+           "Back to games": '',
+           Close: function() {
+             dialog.dialog( "close" );
+           }
+         },
+       });
+  } else {
+    console.log('idiot');
+    alert('Try Again');
+  }
+}
+
+
+function countdownTimer() {
+  var target_time = 60;
+  var time_elapsed = 0;
+  var countdown = document.getElementById('countdown');
+  var timer = setInterval(function () {
+      var seconds_left = (target_time - time_elapsed);
+      if (seconds_left >= 0) {
+        countdown.innerText = seconds_left;
+        time_elapsed += 1;
+        if (gameCompleted === true) {
+          clearInterval(timer);
+        }
+      } else {
+        clearInterval(timer);
+      }
+  }, 1000);
+}
+
+function restartGame() {
+
+}
