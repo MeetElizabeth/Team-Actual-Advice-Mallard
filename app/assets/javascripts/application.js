@@ -20,6 +20,7 @@
 $(function() {
   console.log('what does the fox say?');
   gamePlay();
+  countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
 })
 
@@ -37,7 +38,7 @@ function gamePlay() {
   for (var b = 0; b < numSpaces; b++) {
     $('#space-'+(b+1)+'').droppable({
       accept: '.letter',
-      tolerance: 'touch',
+      tolerance: 'fit',
       drop: function (event, ui) {
         var draggedLetter = ui.draggable.text();
         $(this).replaceWith(ui.draggable)
@@ -55,7 +56,25 @@ function checkSolution() {
   };
   if (guess === answer) {
     alert('You did it!');
+
   } else {
     console.log('idiot');
+    alert('Try Again');
   }
+}
+
+function countdownTimer() {
+  var target_time = 30;
+  var time_elapsed = 0;
+  var countdown = document.getElementById('countdown');
+  var timer = setInterval(function () {
+      var seconds_left = (target_time - time_elapsed);
+      if (seconds_left >= 0) {
+        countdown.innerText = seconds_left;
+        time_elapsed += 1;
+      } else {
+        clearInterval(timer);
+        alert('game over.');
+      }
+  }, 1000);
 }

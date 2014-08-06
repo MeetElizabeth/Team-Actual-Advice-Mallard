@@ -1,4 +1,8 @@
+
 <%= image_tag(@animal.image, class: "animal-image") %>
+<div class="countdown-container">
+  <span id="countdown"></span>
+</div>
 <div class="guess-area">
   <% space_index = 1 %>
   <% @animal.name.downcase.split('').each do |letter|  %>
