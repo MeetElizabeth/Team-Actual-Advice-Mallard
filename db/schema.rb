@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140806194109) do
 
   # These are extensions that must be enabled in order to support this database
@@ -65,7 +64,6 @@ ActiveRecord::Schema.define(version: 20140806194109) do
     t.text     "avatar"
     t.string   "username"
     t.string   "score"
-    t.text     "my_animals"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
