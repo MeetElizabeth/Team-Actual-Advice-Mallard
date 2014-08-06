@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
     # devise_parameter_sanitizer.for(:sign_up) << :avatar
   end
 
+  def initialize_animal_badges
+    @animal_list = Animal.all.group_by(&:environment)
+    # render layout: 'application', text: ''
+  end
+
 end

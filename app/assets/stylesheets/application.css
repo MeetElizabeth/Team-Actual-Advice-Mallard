@@ -16,22 +16,39 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.page-content {
+  position: relative;
+  background-color: orange;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .profile-sidebar {
   background-color: green;
   width: 400px;
-  overflow-y: hidden;
+  height: 100%;
+  overflow: hidden;
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
-#toggle-button {
-  text-align: right;
-  padding-top: 10px;
-  padding-right: 10px;
+#close-profile {
+  float: right;
+  padding: 10px;
+  position: relative;
+}
+
+#open-profile {
+  float: left;
+  padding: 10px;
+  position: relative;
 }
 
 .user-info {
@@ -60,4 +77,9 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: blue;
+}
+
+.environment h1 {
+  text-align: center;
+  vertical-align: center;
 }

@@ -14,3 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  console.log('Loaded, bro.');
+
+  $('.page-content').on('click', '#open-profile', openProfile);
+  $('.profile-sidebar').on('click', '#close-profile', closeProfile);
+  $('.environment').on('click', 'h1', showAnimals);
+
+  $('#collected').hide();
+})
+
+var openProfile = function() {
+  var mainPage = $(this).parent();
+  $(mainPage).css('transition', 'all 0.6s');
+  $(mainPage).css({"-webkit-transform":"translate(400px)"});
+}
+
+var closeProfile = function() {
+  var mainPage = $('.page-content');
+  $(mainPage).css('transition', 'all 0.6s');
+  $(mainPage).css({"-webkit-transform":"translate(0px)"});
+}
+
+var showAnimals = function() {
+  $('#collected').show();
+}
