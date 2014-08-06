@@ -64,7 +64,7 @@ function checkSolution() {
 }
 
 function countdownTimer() {
-  var target_time = 30;
+  var target_time = 60;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
@@ -77,4 +77,5 @@ function countdownTimer() {
         alert('game over.');
       }
   }, 1000);
+  $('body').on('click', '#check-button', clearInterval(timer));
 }
