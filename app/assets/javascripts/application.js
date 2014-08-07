@@ -21,6 +21,7 @@ var readyFunc = function() {
   showCurrentLevel();
   $('body').on('click', '.level', showGames);
   $('body').on('click', 'button', backToAllLevel);
+  $('body').on('click', '#skip_hint_button', skipHint);
   gamePlay();
 
   countdownTimer();
@@ -32,6 +33,7 @@ var readyFunc = function() {
 
   $('.page-content').on('click', '#open-profile', openProfile);
   $('.profile-sidebar').on('click', '#close-profile', closeProfile);
+
 };
 
 $(document).ready(readyFunc);
@@ -143,21 +145,23 @@ function checkSolution() {
   }
 }
 
-
+points = 150;  //points
 function countdownTimer() {
   var target_time = 120;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
       var seconds_left = (target_time - time_elapsed);
+      
       if (seconds_left >= 0) {
-        countdown.innerText = seconds_left;
+        countdown.innerText = "Time Left: " +seconds_left;
 
         if (seconds_left <= 120){
           $('.first_hint').css('display', 'block');
         };
         if ( seconds_left <= 90) {
           $('.second_hint').css('display', 'block');
+          points -= 10;
         }
         if ( seconds_left <= 60) {
           $('.third_hint').css('display', 'block');
@@ -169,13 +173,45 @@ function countdownTimer() {
         time_elapsed += 1;
         if (gameCompleted === true) {
           clearInterval(timer);
+          $('.hooray').css('display', 'block');
         }
       } else {
         clearInterval(timer);
       }
   }, 1000);
+  
 }
 
 function restartGame() {
 
 }
+
+var clickCount = 0;
+function skipHint() {
+  clickCount +=1;
+  if (clickCount >= 0){
+    $('.first_hint').css('display', 'block');
+  }
+  if (clickCount >= 1) {
+    $('.second_hint').css('display', 'block');
+    points -= 10;
+  }
+  if (clickCount >= 2) {
+    $('.third_hint').css('display', 'block');
+  }
+  if (clickCount >= 3) {
+    $('.image_hint').css('display', 'block');
+  }
+
+}
+
+function showPoints () {
+  var pointsHolder = $('#points');  // points
+  pointsHolder.append(points);
+}
+
+
+
+
+
+
