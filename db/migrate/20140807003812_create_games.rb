@@ -1,8 +1,8 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.references :games
-      t.references :users
+      t.references :animal
+      t.references :user
       t.integer :points
     end
   end

@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20140807003812) do
   end
 
   create_table "games", force: true do |t|
-    t.integer "games_id"
-    t.integer "users_id"
+    t.integer "animal_id"
+    t.integer "user_id"
     t.integer "points"
   end
 

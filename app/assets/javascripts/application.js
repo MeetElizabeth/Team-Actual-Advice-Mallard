@@ -133,9 +133,7 @@ function checkSolution() {
     $.ajax({
       url: '/games',
       type: 'post',
-      data: {
-        gameParams
-      }
+      data: gameParams
       })
     //  .done(
     // // var dialog = $( "#completed-dialog" ).dialog({
