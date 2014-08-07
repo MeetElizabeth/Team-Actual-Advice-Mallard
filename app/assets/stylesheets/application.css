@@ -300,6 +300,10 @@ span {
 	display: none;
 }
 
+.show {
+  display: block;
+}
+
 .hooray {
 	display: none;
 }
