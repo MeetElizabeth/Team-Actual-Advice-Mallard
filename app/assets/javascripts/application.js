@@ -22,8 +22,8 @@ var readyFunc = function() {
   $('body').on('click', '.level', showGames);
   $('body').on('click', 'button', backToAllLevel);
   $('body').on('click', '#skip_hint_button', skipHint);
-  gamePlay();
 
+  gamePlay();
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
 
@@ -33,7 +33,6 @@ var readyFunc = function() {
 
   $('.page-content').on('click', '#open-profile', openProfile);
   $('.profile-sidebar').on('click', '#close-profile', closeProfile);
-
 };
 
 $(document).ready(readyFunc);
@@ -107,9 +106,9 @@ function gamePlay() {
       tolerance: 'fit',
       drop: function (event, ui) {
         var draggedLetter = ui.draggable.text();
-        $(this).replaceWith(ui.draggable)
+        $(this).replaceWith(ui.draggable);
         if (numSpaces === $('.guess-area').children('.letter').length) {
-          setTimeout(checkSolution(), 3000);
+          checkSolution();
         }
       }
     });
@@ -152,13 +151,13 @@ function countdownTimer() {
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
       var seconds_left = (target_time - time_elapsed);
-      
+
       if (seconds_left >= 0) {
         countdown.innerText = "Time Left: " +seconds_left;
 
         if (seconds_left <= 120){
           $('.first_hint').css('display', 'block');
-        };
+        }
         if ( seconds_left <= 90) {
           $('.second_hint').css('display', 'block');
           points -= 10;
@@ -169,7 +168,6 @@ function countdownTimer() {
         if ( seconds_left <= 30) {
           $('.image_hint').css('display', 'block');
         }
-
         time_elapsed += 1;
         if (gameCompleted === true) {
           clearInterval(timer);
@@ -179,11 +177,6 @@ function countdownTimer() {
         clearInterval(timer);
       }
   }, 1000);
-  
-}
-
-function restartGame() {
-
 }
 
 var clickCount = 0;
@@ -202,16 +195,9 @@ function skipHint() {
   if (clickCount >= 3) {
     $('.image_hint').css('display', 'block');
   }
-
 }
 
 function showPoints () {
   var pointsHolder = $('#points');  // points
   pointsHolder.append(points);
 }
-
-
-
-
-
-
