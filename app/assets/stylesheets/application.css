@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=Boogaloo);
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -43,6 +45,7 @@ h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
+
 
 h2 {
   font-family: 'Lato', sans-serif;
@@ -135,12 +138,20 @@ button {
   vertical-align: center;
 }
 
+div.guess-area {
+  border-style: dotted;
+  border-width: 2px;
+  height: 100px;
+  width: 320px;
+}
+
 span.blank-space {
-  font-size: 120px;
+  font-size: 140px;
 }
 
 .letter {
   cursor: grab;
+  font-family: 'Boogaloo', cursive;
 	font-size: 55px;
   font-weight: 700;
 }
@@ -305,7 +316,24 @@ span {
 }
 
 
+/* Animal Show Page */
+.animal-name {
+  font-size: 70px;
+  font-weight: 300;
+  /*color: whitesmoke;*/
+}
+.animal-info {
+  font-family: 'Lato', sans-serif;
+  /*color: whitesmoke;*/
+  width: 100%;
+}
+
+ol.animal-facts {
+  list-style-type: none;
+}
 
 
-
-
+img.animal-image {
+  max-height: 320px;
+  max-width: 320px;
+}
