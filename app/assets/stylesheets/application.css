@@ -152,12 +152,12 @@ span.blank-space {
 
 .environment {
 	margin: 20px auto;
-	border: 5px solid #878155;
 	height: auto;
 	width: 46%;
 	display: inline-block;
 	text-decoration: bolder;
 	clear: both;
+  background-color: #48a770;
 	/*position: relative;*/
 }
 
