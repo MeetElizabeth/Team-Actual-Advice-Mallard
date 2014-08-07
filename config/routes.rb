@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'welcome#index'
-  get 'users/:id/animals'    =>   'users#animals'
+  root to: 'games#index'
 
   devise_for :users
   resources :animals, only: :show

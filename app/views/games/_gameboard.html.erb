@@ -1,5 +1,13 @@
+<h1 class='hooray'>Congatulations! You Won!</h1>
+<h2 id='points'>Points: </h2>
+<h2>Hints</h2>
+<ol class='hints'>
+  <li class='hint first_hint'>First Hint: <br><%= @animal.fact_1 %></li>
+  <li class='hint second_hint'>Second Hint: <br><%= @animal.fact_2 %></li>
+  <li class='hint third_hint'>Third Hint: <br><%= @animal.fact_3 %></li>
+  <li class='hint image_hint'>Last Hint <br><%= image_tag(@animal.image, class: "animal-image") %></li>
+</ol>
 
-<%= image_tag(@animal.image, class: "animal-image") %>
 <div class="countdown-container">
   <span id="countdown"></span>
 </div>
@@ -21,10 +29,8 @@
 </div>
 <div class="answer" id="<%= @animal.name.downcase %>" style="display: none;"></div>
 <div>
-<button id="check-button">CHECK</button>
+  <button id="check-button">Check answer</button>
+  <button><%= link_to 'Replay', game_path %></button>
+  <button id="skip_hint_button">Skip To The Next Hint</button>
 </div>
-<!-- for popup dialog -->
-<div id="completed-dialog" title="Hooray!">
-  <p>You did it!</p>
-  <p>The animal was <%= @animal.name.downcase %></p>
-</div>
+

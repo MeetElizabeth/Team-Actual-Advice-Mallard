@@ -22,14 +22,14 @@ body {
 
 .page-content {
   position: relative;
-  background-color: orange;
+  background-color: #f3efe0;
   height: 100vh;
   overflow: hidden;
   z-index: 1;
 }
 
 .profile-sidebar {
-  background-color: green;
+  background-color: #48a770;
   width: 400px;
   height: 100%;
   overflow: hidden;
@@ -37,6 +37,43 @@ body {
   top: 0;
   bottom: 0;
   z-index: 0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+p #user-score {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #fff;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+button {
+  background-color: #388a5a;
+  cursor: pointer;
+  font-weight: bold;
+  border-style: none;
 }
 
 #close-profile {
@@ -52,31 +89,45 @@ body {
 }
 
 .user-info {
+  padding-top: 40px;
   text-align: center;
   vertical-align: center;
   background-color: gray;
 }
 
-#avatar {
-  padding-top: 20px;
+#info h1 {
+  color: #fff;
 }
 
-#avatar img {
+#avatar {
   width: 100px;
   height: 100px;
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  border: 2px solid black;
+  border: 5px solid DimGray;
+  background-color: #388a5a;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#avatar h1 {
+  color: #fff;
+  text-align: center;
+  vertical-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #score {
   margin-top: 15px;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
+  border-top: 5px solid #388a5a;
+  border-bottom: 5px solid #388a5a;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: blue;
+  background-color: #388a5a;
 }
 
 .environment h1 {
@@ -91,7 +142,7 @@ span.blank-space {
 .letter {
   cursor: grab;
 	font-size: 55px;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 #main {
@@ -101,12 +152,12 @@ span.blank-space {
 
 .environment {
 	margin: 20px auto;
-	border: 5px solid #878155;
 	height: auto;
 	width: 46%;
 	display: inline-block;
 	text-decoration: bolder;
 	clear: both;
+  background-color: #48a770;
 	/*position: relative;*/
 }
 
@@ -152,8 +203,8 @@ span.blank-space {
 }
 /*.clearfix:after {
   content: "";
-  display: table; 
-  clear: both; 
+  display: table;
+  clear: both;
 }
 */
 * {
@@ -176,19 +227,6 @@ span.blank-space {
 	height: auto;
 	text-align: center;
 }
-
-/*.octagon {
-	display: none;
-	margin: 12px;
-	display: inline-block;
-	width: 112px;
-	height: 112px;
-	font-size: 22px;
-	color: #fff;
-	line-height: 50px;
-	text-align: center;
-
-}*/
 
 .level {
 	text-align: center;
@@ -256,3 +294,18 @@ span {
 	width: 42px;
 	height: 0;
 }
+
+/* GAME HINTS */
+.hint {
+	display: none;
+}
+
+.hooray {
+	display: none;
+}
+
+
+
+
+
+
