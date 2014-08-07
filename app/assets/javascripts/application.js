@@ -23,6 +23,7 @@ var readyFunc = function() {
   $('body').on('click', 'button', backToAllLevel);
   $('body').on('click', '#skip_hint_button', skipHint);
   gamePlay();
+  showPoints(timePoints);
 
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
@@ -146,63 +147,86 @@ function checkSolution() {
   }
 }
 
-points = 150;  //points
 function countdownTimer() {
   var target_time = 120;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
-      var seconds_left = (target_time - time_elapsed);
-
+      seconds_left = (target_time - time_elapsed);
       if (seconds_left >= 0) {
-        countdown.innerText = "Time Left: " +seconds_left;
-
+        countdown.innerText = "Time Left: " +seconds_left;  
+        showPoints(seconds_left);
         if (seconds_left <= 120){
-          $('.first_hint').css('display', 'block');
+          showHints(0); 
         };
         if ( seconds_left <= 90) {
-          $('.second_hint').css('display', 'block');
-          points -= 10;
+          showHints(1); 
+         
         }
         if ( seconds_left <= 60) {
-          $('.third_hint').css('display', 'block');
+          showHints(2); 
         }
         if ( seconds_left <= 30) {
-          $('.image_hint').css('display', 'block');
+          showHints(3); 
         }
 
         time_elapsed += 1;
         if (gameCompleted === true) {
           clearInterval(timer);
           $('.hooray').css('display', 'block');
+          showBonusAndTotalPoints ();
         }
       } else {
         clearInterval(timer);
       }
   }, 1000);
-
 }
 
-var clickCount = 0;
+clickCount = 0;
 function skipHint() {
   clickCount +=1;
   if (clickCount >= 0){
-    $('.first_hint').css('display', 'block');
+    showHints(0);
   }
   if (clickCount >= 1) {
-    $('.second_hint').css('display', 'block');
-    points -= 10;
+    showHints(1);
   }
   if (clickCount >= 2) {
-    $('.third_hint').css('display', 'block');
+    showHints(2);
   }
   if (clickCount >= 3) {
-    $('.image_hint').css('display', 'block');
+    showHints(3);
   }
 
 }
 
-function showPoints () {
-  var pointsHolder = $('#points');  // points
-  pointsHolder.append(points);
+function showHints(index) {
+  var hintsList = $('#hints').children();
+  hintsList.eq(index).addClass('show');
 }
+
+timePoints = 150;
+function showPoints (points) {
+  $('#points').text("Points: " + points);
+}
+
+function showBonusAndTotalPoints () {
+  var bonusPointsHolder = $('#bonus_points');
+  var totalPointsHolder = $('#total_points');
+  
+  if (clickCount === 0) {
+    bonusPointsHolder.text("Your Bonus Points: 30" );
+    totalPointsHolder.append('You Earned : ' + parseInt(seconds_left + 30));
+  } else if (clickCount === 1) {
+    bonusPointsHolder.text("Your Bonus Points: 20" );
+    totalPointsHolder.append('You Earned : ' + parseInt(seconds_left + 20));
+  } else if (clickCount === 2) {
+    bonusPointsHolder.text("Your Bonus Points: 10" );
+    totalPointsHolder.append('You Earned : ' + parseInt(seconds_left + 10));
+  } else if (clickCount === 3) {
+    bonusPointsHolder.text("Your Bonus Points: 0" );
+    totalPointsHolder.append('You Earned : ' + seconds_left);
+  }
+}
+
+

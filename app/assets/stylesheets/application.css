@@ -305,12 +305,8 @@ span.blank-space {
   height: 0;
   line-height: 0;
 }
-/*.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
+
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -390,4 +386,18 @@ span {
 	border-right: 29px solid white;
 	width: 42px;
 	height: 0;
+}
+
+
+/* GAME HINTS */
+.hint {
+	display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hooray {
+	display: none;
 }
