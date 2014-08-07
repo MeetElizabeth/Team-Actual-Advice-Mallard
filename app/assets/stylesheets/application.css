@@ -1,0 +1,311 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.page-content {
+  position: relative;
+  background-color: #f3efe0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-sidebar {
+  background-color: #48a770;
+  width: 400px;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+p #user-score {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #fff;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+button {
+  background-color: #388a5a;
+  cursor: pointer;
+  font-weight: bold;
+  border-style: none;
+}
+
+#close-profile {
+  float: right;
+  padding: 10px;
+  position: relative;
+}
+
+#open-profile {
+  float: left;
+  padding: 10px;
+  position: relative;
+}
+
+.user-info {
+  padding-top: 40px;
+  text-align: center;
+  vertical-align: center;
+  background-color: gray;
+}
+
+#info h1 {
+  color: #fff;
+}
+
+#avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border: 5px solid DimGray;
+  background-color: #388a5a;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#avatar h1 {
+  color: #fff;
+  text-align: center;
+  vertical-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#score {
+  margin-top: 15px;
+  border-top: 5px solid #388a5a;
+  border-bottom: 5px solid #388a5a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #388a5a;
+}
+
+.environment h1 {
+  text-align: center;
+  vertical-align: center;
+}
+
+span.blank-space {
+  font-size: 120px;
+}
+
+.letter {
+  cursor: grab;
+	font-size: 55px;
+  font-weight: 700;
+}
+
+#main {
+	margin: 0 auto;
+	position: relative;
+}
+
+.environment {
+	margin: 20px auto;
+	height: auto;
+	width: 46%;
+	display: inline-block;
+	text-decoration: bolder;
+	clear: both;
+  background-color: #48a770;
+	/*position: relative;*/
+}
+
+#jungle {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#savanna {
+	position: absolute;
+	top: 0;
+	left: 50%;
+}
+
+#forest {
+	position: absolute;
+	top: 346px;
+	left: 0%;
+}
+
+#farm {
+	position: absolute;
+	top: 346px;
+	left: 50%;
+}
+
+.clear {
+	clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+/*.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.levels {
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	text-align: center;
+
+}
+
+.game_list {
+	margin: 30px auto;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+.level {
+	text-align: center;
+	margin: 20px auto;
+	display: inline-block;
+	width: 112px;
+	height: 112px;
+	border-radius: 70px;
+	font-size: 22px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+	background: #fcecfc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 50%, #fd89d7 71%, #fd89d7 71%, #ff7cd8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcecfc), color-stop(50%,#fba6e1), color-stop(71%,#fd89d7), color-stop(71%,#fd89d7), color-stop(100%,#ff7cd8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff7cd8',GradientType=0 ); /* IE6-9 */
+
+}
+
+span {
+	z-index: 1;
+	position: relative;
+
+}
+
+.octagon {
+	background: #7DD355;
+	position: relative;
+	z-index: 1;
+	/*display: none;*/
+	margin: 6px;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	font-size: 22px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+}
+
+.octagon:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-bottom: 29px solid #7DD355;
+	border-left: 29px solid white;
+	border-right: 29px solid white;
+	width: 42px;
+	height: 0;
+}
+
+.octagon:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-top: 29px solid #7DD355;
+	border-left: 29px solid white;
+	border-right: 29px solid white;
+	width: 42px;
+	height: 0;
+}
+
+/* GAME HINTS */
+.hint {
+	display: none;
+}
+
+.hooray {
+	display: none;
+}
+
+
+
+
+
+

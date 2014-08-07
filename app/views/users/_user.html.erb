@@ -1,0 +1,14 @@
+<div class="user-info" id="<%= dom_id(user) %>">
+  <div id="avatar">
+    <h1><%= user.first_name[0] %></h1>
+  </div>
+  <div id="info">
+    <h1>Hello, <%= user.first_name %>!</h1>
+    <h4><%= user.username %></h3>
+    <p><%= user.email %><br><%= user.birthday %></p>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  </div>
+  <div id="score">
+    <h1 id="user-score"><%= user.score %> PTS</h1>
+  </div>
+</div>

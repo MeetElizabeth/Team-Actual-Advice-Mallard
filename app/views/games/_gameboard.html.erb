@@ -1,0 +1,40 @@
+<h1 class='hooray'>Congatulations! You Won!</h1>
+<h2 id='points'>Points: </h2>
+<h2>Hints</h2>
+<ol class='hints'>
+  <li class='hint first_hint'>First Hint: <br><%= @animal.fact_1 %></li>
+  <li class='hint second_hint'>Second Hint: <br><%= @animal.fact_2 %></li>
+  <li class='hint third_hint'>Third Hint: <br><%= @animal.fact_3 %></li>
+  <li class='hint image_hint'>Last Hint <br><%= image_tag(@animal.image, class: "animal-image") %></li>
+</ol>
+
+<div class="countdown-container">
+  <span id="countdown"></span>
+</div>
+<div class="guess-area">
+  <% space_index = 1 %>
+  <% @animal.name.downcase.split('').each do |letter|  %>
+    <span class="blank-space" id="space-<%= space_index %>">_</span>
+    <% space_index += 1 %>
+  <% end %>
+</div>
+<br>
+<br>
+<div class="letter-bank">
+  <% index = 1 %>
+  <% @playable_letters.each do |letter| %>
+    <span class="letter" id="letter-<%= index %>"><%= letter %></span>
+    <% index += 1 %>
+  <% end %>
+</div>
+<div class="hidden" style="display: none;">
+<div class="answer" id="<%= @animal.name.downcase %>"></div>
+<div class="animal" id="<%= @animal.id %>"></div>
+<div class="user" id="<%= current_user.id %>"></div>
+</div>
+<div>
+  <button id="check-button">Check answer</button>
+  <button><%= link_to 'Replay', game_path %></button>
+  <button id="skip_hint_button">Skip To The Next Hint</button>
+</div>
+
