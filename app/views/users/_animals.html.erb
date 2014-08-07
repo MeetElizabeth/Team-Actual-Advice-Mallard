@@ -7,10 +7,10 @@
 <div id='animals-menu'>
   <ul>
   <% my_animals.group_by(&:environment).each do |key, group| %>
-      <li><a href='#'><span><%= key %></span></a></li>
+      <li><a href="<%= animals/#{animal.id} %>"><span><%= key %></span></a></li>
       <ul>
     <% group.each do |animal| %>
-      <li><a href="<%= animals/#{animal.id} %>"><div id='names'><%= animal['name'] %></div></a></li>
+      <li><a href="#"><div id='names'><%= animal['name'] %></div></a></li>
     <% end %>
       </ul>
   <% end %>
