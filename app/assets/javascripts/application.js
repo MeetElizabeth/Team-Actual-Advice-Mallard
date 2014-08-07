@@ -20,10 +20,10 @@ var readyFunc = function() {
 
   showCurrentLevel();
   $('body').on('click', '.level', showGames);
-  $('body').on('click', 'button', backToAllLevel);
+  // $('body').on('click', 'button', backToAllLevel);
   $('body').on('click', '#skip_hint_button', skipHint);
 
-  gamePlay();
+  moveLetters();
   countdownTimer();
   $('body').on('click', '#check-button', checkSolution);
 
@@ -90,30 +90,12 @@ function showGames(){
 	environment.append(gameList);
 }
 
-function gamePlay() {
-  var numLetters = $('.letter-bank').children().length;
-  var numSpaces = $('.guess-area').children().length;
-  var draggedLetter;
-  for (var i = 0; i < numLetters; i++) {
-    $('#letter-'+(i+1)+'').draggable({
-      cursor: 'move',
-      revert: true
-    })
-  }
-  for (var b = 0; b < numSpaces; b++) {
-    $('#space-'+(b+1)+'').droppable({
-      accept: '.letter',
-      tolerance: 'fit',
-      drop: function (event, ui) {
-        var draggedLetter = ui.draggable.text();
-        $(this).replaceWith(ui.draggable);
-        if (numSpaces === $('.guess-area').children('.letter').length) {
-          checkSolution();
-        }
-      }
-    });
-  }
+function moveLetters() {
+  $('.sortable').sortable({
+    connectWith: "div"
+  });
 }
+
 
 var gameCompleted = false;
 
@@ -123,26 +105,28 @@ function checkSolution() {
   var guess = '';
   for (var i = 0; i < guessArea.length; i++) {
     guess += guessArea.eq(i).text();
-  };
+  }
   if (guess === answer) {
     gameCompleted = true;
     var gameParams = {
       game: {
         points: 45,
         animal_id: parseInt($('.animal').attr('id')),
-        user_id: parseInt($('.user').attr('id'))
       }
-    }
+    };
     $.ajax({
       url: '/games',
       type: 'post',
       data: gameParams
-      })
+    });
   } else {
     console.log('idiot');
     alert('Try Again');
   }
 }
+
+
+
 
 points = 150;  //points
 function countdownTimer() {

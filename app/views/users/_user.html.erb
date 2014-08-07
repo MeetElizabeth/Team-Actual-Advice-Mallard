@@ -9,6 +9,11 @@
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   </div>
   <div id="score">
-    <h1 id="user-score"><%= user.score %> PTS</h1>
+    <% total_points = [] %>
+    <% user.games.map do |game| %>
+    <% total_points << game.points %>
+    <% end %>
+
+    <h1 id="user-score"><%= total_points.reduce(:+) %> PTS</h1>
   </div>
 </div>

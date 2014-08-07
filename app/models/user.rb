@@ -9,9 +9,10 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :first_name, :password, :score
   validates_uniqueness_of :username, :email
 
-  after_initialize :defaults
-  def defaults
-    self.score = 0
-  end
+  before_create :initialize_score
+
+    def initialize_score
+      self.score = "0"
+    end
 
 end
