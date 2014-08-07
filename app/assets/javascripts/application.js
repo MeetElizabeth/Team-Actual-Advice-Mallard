@@ -182,10 +182,6 @@ function countdownTimer() {
   
 }
 
-function restartGame() {
-
-}
-
 var clickCount = 0;
 function skipHint() {
   clickCount +=1;
