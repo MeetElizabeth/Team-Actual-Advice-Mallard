@@ -37,6 +37,7 @@ var readyFunc = function() {
 $(document).ready(readyFunc);
 $(document).on('page:load', readyFunc);
 
+
 function sidebarOpen() {
   var openButton = $('#open-profile');
   $(openButton).hide();
