@@ -123,18 +123,34 @@ function checkSolution() {
   };
   if (guess === answer) {
     gameCompleted = true;
-    var dialog = $( "#completed-dialog" ).dialog({
-         autoOpen: true,
-         height: 300,
-         width: 350,
-         modal: true,
-         buttons: {
-           "Back to games": '',
-           Close: function() {
-             dialog.dialog( "close" );
-           }
-         },
-       });
+    var gameParams = {
+      game: {
+        points: 45,
+        completed: true
+      }
+    }
+    $.ajax({
+      url: '/games',
+      type: 'post',
+      data: {
+        gameParams: gameParams,
+        animalId: $('.animal').attr('id')
+      }
+      })
+    //  .done(
+    // // var dialog = $( "#completed-dialog" ).dialog({
+    // //      autoOpen: true,
+    // //      height: 300,
+    // //      width: 350,
+    // //      modal: true,
+    // //      buttons: {
+    // //        "Back to games": '',
+    // //        Close: function() {
+    // //          dialog.dialog( "close" );
+    // //        }
+    // //      },
+    // //    });
+    //  )
   } else {
     console.log('idiot');
     alert('Try Again');

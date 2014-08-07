@@ -19,7 +19,10 @@
     <% index += 1 %>
   <% end %>
 </div>
-<div class="answer" id="<%= @animal.name.downcase %>" style="display: none;"></div>
+<div class="hidden" style="display: none;">
+<div class="answer" id="<%= @animal.name.downcase %>"></div>
+<div class="animal" id="<%= @animal.id %>"></div>
+</div>
 <div>
 <button id="check-button">CHECK</button>
 </div>

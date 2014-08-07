@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   belongs_to :user
-  has_one :animal
+  belongs_to :animal
 
 # for populating guessable letters
   def guessable_letters(animal)
