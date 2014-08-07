@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :authentication_keys => [:username]
 
   has_many :games, dependent: :destroy
-  has_many :animals, through: :games, dependent: :destroy
+  has_many :animals, through: :games
 
   validates_presence_of :username, :first_name, :password, :score
   validates_uniqueness_of :username, :email

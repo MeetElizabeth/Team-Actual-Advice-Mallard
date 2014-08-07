@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :animals, only: :show
-  resources :games, only: [:index, :show]
+  resources :games, only: [:index, :show, :create]
 
 end
