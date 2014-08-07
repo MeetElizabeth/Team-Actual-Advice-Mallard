@@ -28,8 +28,6 @@ var readyFunc = function() {
   $('body').on('click', '#check-button', checkSolution);
 
   sidebarOpen();
-  var openButton = $('#open-profile');
-  $(openButton).hide();
 
   $('.page-content').on('click', '#open-profile', openProfile);
   $('.profile-sidebar').on('click', '#close-profile', closeProfile);
@@ -39,13 +37,15 @@ var readyFunc = function() {
 $(document).ready(readyFunc);
 $(document).on('page:load', readyFunc);
 
-var sidebarOpen = function() {
+function sidebarOpen() {
+  var openButton = $('#open-profile');
+  $(openButton).hide();
   var mainPage = $('.page-content');
   $(mainPage).css('transition', 'all 0.6s');
   $(mainPage).css({"-webkit-transform":"translate(400px)"});
 }
 
-var openProfile = function() {
+function openProfile() {
   var mainPage = $(this).parent();
   var openButton = $(this);
   var closeButton = $('#close-profile');
@@ -55,7 +55,7 @@ var openProfile = function() {
   $(closeButton).show();
 }
 
-var closeProfile = function() {
+function closeProfile() {
   var mainPage = $('.page-content');
   var closeButton = $(this);
   var openButton = $('#open-profile');
@@ -152,7 +152,7 @@ function countdownTimer() {
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
       var seconds_left = (target_time - time_elapsed);
-      
+
       if (seconds_left >= 0) {
         countdown.innerText = "Time Left: " +seconds_left;
 
@@ -179,10 +179,6 @@ function countdownTimer() {
         clearInterval(timer);
       }
   }, 1000);
-  
-}
-
-function restartGame() {
 
 }
 
@@ -209,9 +205,3 @@ function showPoints () {
   var pointsHolder = $('#points');  // points
   pointsHolder.append(points);
 }
-
-
-
-
-
-
