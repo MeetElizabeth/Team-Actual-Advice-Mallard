@@ -126,8 +126,8 @@ function checkSolution() {
     var gameParams = {
       game: {
         points: 45,
-        animal_id: parseInt($('.animal').attr('id'))
-
+        animal_id: parseInt($('.animal').attr('id')),
+        user_id: parseInt($('.user').attr('id'))
       }
     }
     $.ajax({
@@ -135,20 +135,6 @@ function checkSolution() {
       type: 'post',
       data: gameParams
       })
-    //  .done(
-    // // var dialog = $( "#completed-dialog" ).dialog({
-    // //      autoOpen: true,
-    // //      height: 300,
-    // //      width: 350,
-    // //      modal: true,
-    // //      buttons: {
-    // //        "Back to games": '',
-    // //        Close: function() {
-    // //          dialog.dialog( "close" );
-    // //        }
-    // //      },
-    // //    });
-    //  )
   } else {
     console.log('idiot');
     alert('Try Again');

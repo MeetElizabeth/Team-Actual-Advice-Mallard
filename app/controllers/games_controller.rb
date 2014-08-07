@@ -19,7 +19,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:gameParams).require(:game).permit(:points, :completed)
+    params.require(:game).permit(:points, :user_id, :animal_id)
   end
 
 end
