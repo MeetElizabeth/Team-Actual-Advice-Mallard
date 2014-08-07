@@ -4,16 +4,14 @@
   </div>
   <div id="info">
     <h1>Hello, <%= user.first_name %>!</h1>
+      <div id='over-line'></div>
     <h4><%= user.username %></h3>
     <p><%= user.email %><br><%= user.birthday %></p>
+      <div id='under-line'></div>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   </div>
   <div id="score">
-    <% total_points = [] %>
-    <% user.games.map do |game| %>
-    <% total_points << game.points %>
-    <% end %>
-
-    <h1 id="user-score"><%= total_points.reduce(:+) %> PTS</h1>
+    <h1 id="user-score"><b><%= user.score %></b> PTS</h1>
+    <h1 id="animal-count"><b><%= user.animals.length %></b> ANIMALS</h1>
   </div>
 </div>

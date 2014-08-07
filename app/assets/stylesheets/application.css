@@ -18,23 +18,27 @@
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: auto;
 }
 
 .page-content {
   position: relative;
-  background-color: #f3efe0;
+  background-color: #fef2dc;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  vertical-align: center;
+  box-shadow: -10px 0px 40px 20px #3E4C40;
 }
 
 .profile-sidebar {
-  background-color: #48a770;
+  background-color: #9cc2a2;
   width: 400px;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -73,16 +77,23 @@ a {
 }
 
 button {
-  background-color: #388a5a;
+  background-color: #7D9B82;
   cursor: pointer;
   font-weight: bold;
   border-style: none;
+  color: #586C5B;
+  padding: 20px;
+}
+
+#button-main {
+  background-color: #c7bca0;
+  color: #645E50;
 }
 
 #close-profile {
-  float: right;
   padding: 10px;
   position: relative;
+  width: 400px;
 }
 
 #open-profile {
@@ -92,14 +103,53 @@ button {
 }
 
 .user-info {
-  padding-top: 40px;
+  padding-top: 20px;
   text-align: center;
   vertical-align: center;
-  background-color: gray;
+  background-color: #9cc2a2;
+}
+
+#info {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #info h1 {
-  color: #fff;
+  color: #fef2dc;
+  padding-bottom: 5px;
+}
+
+#over-line {
+  height: 2px;
+  width: 80px;
+  border-top: 5px solid #586C5B;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#info h4 {
+  color: #586C5B;
+}
+
+#info p {
+  color: #586C5B;
+}
+
+#under-line {
+  height: 2px;
+  width: 80px;
+  border-top: 5px solid #586C5B;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#info a {
+  text-decoration: none;
+  color: #2C362E;
 }
 
 #avatar {
@@ -108,32 +158,62 @@ button {
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  border: 5px solid DimGray;
-  background-color: #388a5a;
+  background-color: #7D9B82;
   margin-left: auto;
   margin-right: auto;
 }
 
 #avatar h1 {
-  color: #fff;
+  color: #fef2dc;
   text-align: center;
   vertical-align: center;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 60px;
+  line-height: 95px;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
 }
 
 #score {
   margin-top: 15px;
-  border-top: 5px solid #388a5a;
-  border-bottom: 5px solid #388a5a;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #388a5a;
+  background-color: #586C5B;
 }
 
-.environment h1 {
+#score h1 {
+  color: #fef2dc;
+}
+
+#animals-menu,
+#animals-menu ul,
+#animals-menu li,
+#animals-menu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  position: relative;
+}
+
+#animals-menu {
+  width: 400px;
+}
+
+#animals-menu > ul > li > a {
+  display: block;
+  background: #B0CEB5;
+  color: #fef2dc;
+  text-transform: uppercase;
+  position: relative;
+}
+
+#animals-menu > ul > li > a > span {
+  padding: 15px;
+  display: block;
   text-align: center;
   vertical-align: center;
 }
@@ -143,6 +223,39 @@ div.guess-area {
   border-width: 2px;
   height: 100px;
   width: 320px;
+
+#names {
+  width: 400px;
+  text-align: center;
+  vertical-align: center;
+  color: #586C5B;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+#animals-header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #7D9B82;
+}
+
+#animals-header h1 {
+  color: #fef2dc;
+  text-align: center;
+  vertical-align: center;
+}
+
+.environment {
+  margin: 20px auto;
+  height: auto;
+  width: 46%;
+  display: inline-block;
+  text-decoration: bolder;
+  clear: both;
+  background-color: #d6cfb2;
 }
 
 span.blank-space {
@@ -159,17 +272,6 @@ span.blank-space {
 #main {
 	margin: 0 auto;
 	position: relative;
-}
-
-.environment {
-	margin: 20px auto;
-	height: auto;
-	width: 46%;
-	display: inline-block;
-	text-decoration: bolder;
-	clear: both;
-  background-color: #48a770;
-	/*position: relative;*/
 }
 
 #jungle {
@@ -212,12 +314,8 @@ span.blank-space {
   height: 0;
   line-height: 0;
 }
-/*.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
+
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -229,7 +327,6 @@ span.blank-space {
 	width: 100%;
 	height: auto;
 	text-align: center;
-
 }
 
 .game_list {
@@ -240,25 +337,19 @@ span.blank-space {
 }
 
 .level {
-	text-align: center;
+  width: 112px;
+  height: 112px;
+  border-radius: 56px;
+  font-size: 40px;
+  color: #d6cfb2;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
 	margin: 20px auto;
 	display: inline-block;
-	width: 112px;
-	height: 112px;
-	border-radius: 70px;
-	font-size: 22px;
-	color: #fff;
-	line-height: 50px;
-	text-align: center;
-	background: #fcecfc; /* Old browsers */
-	background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 50%, #fd89d7 71%, #fd89d7 71%, #ff7cd8 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcecfc), color-stop(50%,#fba6e1), color-stop(71%,#fd89d7), color-stop(71%,#fd89d7), color-stop(100%,#ff7cd8)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 50%,#fd89d7 71%,#fd89d7 71%,#ff7cd8 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff7cd8',GradientType=0 ); /* IE6-9 */
-
+  background-color: #645E50;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 span {
@@ -306,14 +397,20 @@ span {
 	height: 0;
 }
 
+
 /* GAME HINTS */
 .hint {
 	display: none;
 }
 
+.show {
+  display: block;
+}
+
 .hooray {
 	display: none;
 }
+
 
 
 /* Animal Show Page */
