@@ -14,8 +14,6 @@
  *= require_self
  */
 
-@import url(http://fonts.googleapis.com/css?family=Boogaloo);
-
 body {
   margin: 0;
   overflow: auto;
@@ -49,7 +47,6 @@ h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
-
 
 h2 {
   font-family: 'Lato', sans-serif;
@@ -218,12 +215,6 @@ button {
   vertical-align: center;
 }
 
-div.guess-area {
-  border-style: dotted;
-  border-width: 2px;
-  height: 100px;
-  width: 320px;
-
 #names {
   width: 400px;
   text-align: center;
@@ -259,12 +250,11 @@ div.guess-area {
 }
 
 span.blank-space {
-  font-size: 140px;
+  font-size: 120px;
 }
 
 .letter {
   cursor: grab;
-  font-family: 'Boogaloo', cursive;
 	font-size: 55px;
   font-weight: 700;
 }
@@ -358,43 +348,21 @@ span {
 
 }
 
-.octagon {
-	background: #7DD355;
+.games {
+	background: #645E50;
 	position: relative;
 	z-index: 1;
-	/*display: none;*/
-	margin: 6px;
+	margin: 20px auto;
 	display: inline-block;
-	width: 100px;
-	height: 100px;
-	font-size: 22px;
-	color: #fff;
-	line-height: 50px;
+	width: 112px;
+	height: 112px;
+	font-size: 40px;
+  color: #d6cfb2;
+	line-height: 20px;
 	text-align: center;
-}
-
-.octagon:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	border-bottom: 29px solid #7DD355;
-	border-left: 29px solid white;
-	border-right: 29px solid white;
-	width: 42px;
-	height: 0;
-}
-
-.octagon:after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	border-top: 29px solid #7DD355;
-	border-left: 29px solid white;
-	border-right: 29px solid white;
-	width: 42px;
-	height: 0;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
@@ -411,26 +379,12 @@ span {
 	display: none;
 }
 
-
-
-/* Animal Show Page */
-.animal-name {
-  font-size: 70px;
-  font-weight: 300;
-  /*color: whitesmoke;*/
-}
-.animal-info {
-  font-family: 'Lato', sans-serif;
-  /*color: whitesmoke;*/
-  width: 100%;
-}
-
-ol.animal-facts {
-  list-style-type: none;
-}
-
-
-img.animal-image {
-  max-height: 320px;
-  max-width: 320px;
+div.guess-area {
+  vertical-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: dotted;
+  border-width: 2px;
+  height: 100px;
+  width: 320px;
 }

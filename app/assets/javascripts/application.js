@@ -20,7 +20,7 @@ var readyFunc = function() {
 
   showCurrentLevel();
   $('body').on('click', '.level', showGames);
-  // $('body').on('click', 'button', backToAllLevel);
+  $('body').on('click', '#button-main', backToAllLevel);
   $('body').on('click', '#skip_hint_button', skipHint);
 
   showPoints(timePoints);
@@ -83,11 +83,10 @@ function showGames(){
 	var environment = level.closest('.environment');
 	var gameList = $('<article class="game_list">');
 
-	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
-	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
-	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
+	var game1 = $('<div class="games">').append($("<h1>").text("1"));
+	var game2 =	$('<div class="games">').append($("<h1>").text("2"));
+	var game3 =	$('<div class="games">').append($("<h1>").text("3"));
 
-	level.css('background', 'yellow').css('color', 'black')
 	level.parent().hide();
 	gameList.append(game1).append(game2).append(game3);
 	environment.append(gameList);
