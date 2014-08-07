@@ -126,15 +126,15 @@ function checkSolution() {
     var gameParams = {
       game: {
         points: 45,
-        completed: true
+        animal_id: parseInt($('.animal').attr('id'))
+
       }
     }
     $.ajax({
       url: '/games',
       type: 'post',
       data: {
-        gameParams: gameParams,
-        animalId: $('.animal').attr('id')
+        gameParams
       }
       })
     //  .done(
