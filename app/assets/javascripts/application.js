@@ -18,9 +18,9 @@
 var readyFunc = function() {
   console.log('Loaded, bro.');
 
-  showCurrentLevel();
-  $('body').on('click', '.level', showGames);
-  $('body').on('click', '#button-main', backToAllLevel);
+  // showCurrentLevel();
+  // $('body').on('click', '.level', showGames);
+  // $('body').on('click', '#button-main', backToAllLevel);
   $('body').on('click', '#skip_hint_button', skipHint);
 
   showPoints(timePoints);
@@ -67,30 +67,31 @@ function closeProfile() {
   $(openButton).show();
 }
 
-var currentLevel = 1;
-function showCurrentLevel (){
-	$('.current_level').append(currentLevel);
-}
+// var currentLevel = 1;
+// function showCurrentLevel (){
+// 	$('.current_level').append(currentLevel);
+// }
 
-function backToAllLevel (){
-	$(this).siblings('.game_list').hide();
-	$(this).siblings('.levels').show();
-}
+// function backToAllLevel (){
+// 	$(this).siblings('.game_list').hide();
+// 	$(this).siblings('.levels').show();
+// }
 
-function showGames(){
-	var level = $(this);
 
-	var environment = level.closest('.environment');
-	var gameList = $('<article class="game_list">');
-
-	var game1 = $('<div class="games">').append($("<h1>").text("1"));
-	var game2 =	$('<div class="games">').append($("<h1>").text("2"));
-	var game3 =	$('<div class="games">').append($("<h1>").text("3"));
-
-	level.parent().hide();
-	gameList.append(game1).append(game2).append(game3);
-	environment.append(gameList);
-}
+// function showGames(){
+// 	var level = $(this);
+//
+// 	var environment = level.closest('.environment');
+// 	var gameList = $('<article class="game_list">');
+//
+// 	var game1 = $('<div class="games">').append($("<h1>").text("1"));
+// 	var game2 =	$('<div class="games">').append($("<h1>").text("2"));
+// 	var game3 =	$('<div class="games">').append($("<h1>").text("3"));
+//
+// 	level.parent().hide();
+// 	gameList.append(game1).append(game2).append(game3);
+// 	environment.append(gameList);
+// }
 
 function moveLetters() {
   $('.sortable').sortable({
@@ -126,8 +127,6 @@ function checkSolution() {
     alert('Try Again');
   }
 }
-
-
 
 
 function countdownTimer() {
