@@ -13,4 +13,4 @@ A children's spelling game. Click on a game on the main page to play an animal p
 [LucidChart](https://www.lucidchart.com/publicSegments/view/53e42f64-295c-4fcc-8baf-74130a00d4ac/image.png)
 
 #### Heroku-hosted Site:
-[Spelling Zoo](hyperlink)
+[Spelling Zoo](http://secure-bayou-5911.herokuapp.com/)
