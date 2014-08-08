@@ -22,7 +22,6 @@ var readyFunc = function() {
   $('body').on('click', '.level', showGames);
   // $('body').on('click', 'button', backToAllLevel);
   $('body').on('click', '#skip_hint_button', skipHint);
-
   showPoints(timePoints);
 
   moveLetters();
@@ -37,7 +36,6 @@ var readyFunc = function() {
 
 $(document).ready(readyFunc);
 $(document).on('page:load', readyFunc);
-
 
 function sidebarOpen() {
   var openButton = $('#open-profile');
@@ -100,7 +98,35 @@ function moveLetters() {
 }
 
 
-var gameCompleted = false;
+function showBonusAndTotalPoints () {
+  var bonusPointsHolder = $('#bonus_points');
+  var totalPointsHolder = $('#total_points');
+  var gamePoints = $('<span id="game-points">');
+  var pointsText = $('#game-points').text();
+
+  if (clickCount === 0) {
+    bonusPointsHolder.text("Your Bonus Points: 30" );
+    gamePoints.text(parseInt(seconds_left + 30));
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  } else if (clickCount === 1) {
+    gamePoints.text(parseInt(seconds_left + 20));
+    bonusPointsHolder.text("Your Bonus Points: 20" );
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  } else if (clickCount === 2) {
+    gamePoints.text(parseInt(seconds_left + 10));
+    bonusPointsHolder.text("Your Bonus Points: 10" );
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  } else if (clickCount === 3) {
+    gamePoints.text(seconds_left);
+    bonusPointsHolder.text("Your Bonus Points: 0" );
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  }
+}
+
 
 function checkSolution() {
   var guessArea = $('.guess-area').children();
@@ -110,18 +136,7 @@ function checkSolution() {
     guess += guessArea.eq(i).text();
   }
   if (guess === answer) {
-    gameCompleted = true;
-    var gameParams = {
-      game: {
-        points: 45,
-        animal_id: parseInt($('.animal').attr('id')),
-      }
-    };
-    $.ajax({
-      url: '/games',
-      type: 'post',
-      data: gameParams
-    });
+    showBonusAndTotalPoints();
   } else {
     console.log('idiot');
     alert('Try Again');
@@ -191,21 +206,16 @@ function showPoints (points) {
   $('#points').text("Points: " + points);
 }
 
-function showBonusAndTotalPoints () {
-  var bonusPointsHolder = $('#bonus_points');
-  var totalPointsHolder = $('#total_points');
-
-  if (clickCount === 0) {
-    bonusPointsHolder.text("Your Bonus Points: 30" );
-    totalPointsHolder.append('You Earned : ' + parseInt(seconds_left + 30));
-  } else if (clickCount === 1) {
-    bonusPointsHolder.text("Your Bonus Points: 20" );
-    totalPointsHolder.append('You Earned : ' + parseInt(seconds_left + 20));
-  } else if (clickCount === 2) {
-    bonusPointsHolder.text("Your Bonus Points: 10" );
-    totalPointsHolder.append('You Earned : ' + parseInt(seconds_left + 10));
-  } else if (clickCount === 3) {
-    bonusPointsHolder.text("Your Bonus Points: 0" );
-    totalPointsHolder.append('You Earned : ' + seconds_left);
-  }
+function updateGame(score) {
+  var gameParams = {
+    game: {
+      points: score,
+      animal_id: parseInt($('.animal').attr('id')),
+    }
+  };
+  $.ajax({
+    url: '/games',
+    type: 'post',
+    data: gameParams
+  });
 }
