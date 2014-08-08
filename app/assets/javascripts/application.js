@@ -73,6 +73,7 @@ function closeProfile() {
   $(openButton).show();
 }
 
+//**FORTHEFUTURE!!!**//
 // var currentLevel = 1;
 // function showCurrentLevel (){
 // 	$('.current_level').append(currentLevel);
@@ -156,7 +157,7 @@ function countdownTimer() {
   var target_time = 120;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
-  var timer = setInterval(function () {
+  var timer = setInterval(function() {
       seconds_left = (target_time - time_elapsed);
       if (seconds_left >= 0) {
         countdown.innerText = "Time Left: " +seconds_left;
