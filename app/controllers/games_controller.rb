@@ -14,11 +14,13 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.user_id = current_user.id
     if @game.save
+      binding.pry
       total_points = []
       current_user.games.map do |game|
         total_points << game.points
       end
-      current_user.update(score: total_points.reduce(:+))
+      new_score = total_points.reduce(:+)
+      current_user.update_attribute(:score, new_score)
       render json: @game, status: 200
     end
   end
