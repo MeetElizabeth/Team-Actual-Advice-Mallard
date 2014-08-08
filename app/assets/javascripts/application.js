@@ -146,7 +146,6 @@ function checkSolution() {
   }
   if (guess === answer) {
     gameCompleted = true;
-    showBonusAndTotalPoints();
   } else {
     console.log('idiot');
     alert('Try Again');
@@ -175,6 +174,7 @@ function countdownTimer() {
         }
         time_elapsed += 1;
         if (gameCompleted === true) {
+          showBonusAndTotalPoints();
           clearInterval(timer);
           $('.hooray').css('display', 'block');
                 }
