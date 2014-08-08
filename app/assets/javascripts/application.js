@@ -18,24 +18,32 @@
 var readyFunc = function() {
   console.log('Loaded, bro.');
 
+  // sidebar javascript
+  sidebarOpen();
+  $('.page-content').on('click', '#open-profile', openProfile);
+  $('.profile-sidebar').on('click', '#close-profile', closeProfile);
+
+  // future javascript
   // showCurrentLevel();
   // $('body').on('click', '.level', showGames);
   // $('body').on('click', '#button-main', backToAllLevel);
+
+  // gameplay javascript
   $('body').on('click', '#skip_hint_button', skipHint);
-  showPoints(timePoints);
 
-  moveLetters();
-  countdownTimer();
-  $('body').on('click', '#check-button', checkSolution);
-
-  sidebarOpen();
-
-  $('.page-content').on('click', '#open-profile', openProfile);
-  $('.profile-sidebar').on('click', '#close-profile', closeProfile);
+  // showPoints(timePoints);
+  if (location.pathname.length > 7){
+    moveLetters();
+    countdownTimer();
+    $('body').on('click', '#check-button', checkSolution);
+  }
 };
 
+// turbolinks workaround
 $(document).ready(readyFunc);
 $(document).on('page:load', readyFunc);
+
+
 
 function sidebarOpen() {
   var openButton = $('#open-profile');
@@ -127,6 +135,7 @@ function showBonusAndTotalPoints () {
   }
 }
 
+gameCompleted = false;
 
 function checkSolution() {
   var guessArea = $('.guess-area').children();
@@ -137,12 +146,12 @@ function checkSolution() {
   }
   if (guess === answer) {
     showBonusAndTotalPoints();
+    gameCompleted = true;
   } else {
     console.log('idiot');
     alert('Try Again');
   }
 }
-
 
 function countdownTimer() {
   var target_time = 120;
@@ -152,10 +161,9 @@ function countdownTimer() {
       seconds_left = (target_time - time_elapsed);
       if (seconds_left >= 0) {
         countdown.innerText = "Time Left: " +seconds_left;
-        showPoints(seconds_left);
         if (seconds_left <= 120){
           showHints(0);
-        };
+        }
         if ( seconds_left <= 90) {
           showHints(1);
         }
@@ -215,5 +223,8 @@ function updateGame(score) {
     url: '/games',
     type: 'post',
     data: gameParams
-  });
+  })
+    .done(
+      gameCompleted = false
+    );
 }
