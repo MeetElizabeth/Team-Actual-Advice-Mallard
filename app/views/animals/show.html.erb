@@ -1,0 +1,16 @@
+<%= link_to 'Back to Games', root_path %>
+
+<div class="animal-info">
+  <%= image_tag(@animal.image, class: "animal-image") %>
+  <h1 class="animal-name"><%= @animal.name %></h1>
+  <h3>Lives in the <%= @animal.environment %></h3>
+  <h3>Some <%= @animal.name %> fun facts</h3>
+  <ol class="animal-facts">
+    <li class="animal-facts"><%= @animal.fact_1 %></li>
+    <li class="animal-facts"><%= @animal.fact_2 %></li>
+    <li class="animal-facts"><%= @animal.fact_3 %></li>
+  </ol>
+  <h3>Information <%= @animal.information %></h3>
+
+
+</div>

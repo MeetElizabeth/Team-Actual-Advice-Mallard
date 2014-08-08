@@ -3,54 +3,57 @@
 	<title>mallard-game-index</title>
 </head>
 <body>
-	<h1>Welcome to Mallard Awesomest Word Game Ever!</h1>
-	<h4>But watch out, your brain may explode</h4>
+	<h1>Welcome to the Spelling Zoo!</h1>
+	<h4>(A Team Advice Mallard Production)</h4>
+
 	<section class="clearfix" id='main'>
-		<div class='test-tobedeletedlater'>
+
+
+		<div class='environment' id='farm'>
+			<h2>Farm</h2>
+			<article class="levels clearfix clear">
+				<% counter = 1 %>
+				<% Animal.where(environment: "Farm").each do |animal| %>
+				<a href='<%= "/games/#{animal.id}" %>'><div class='level'><h1><%= counter %></h1></div>
+					<% counter += 1 %>
+					<% end %>
+			</article>
+		</div>
+
 		<div class='environment' id='jungle'>
 			<h2>Jungle</h2>
-			<button>All Levels</button>
-			<h4 class="current_level">You are on level: </h4>
 			<article class="levels clearfix clear">
-				<div class='level'>Level: 1</div>
-				<div class='level'>Level: 2</div>
-				<div class='level'>Level: 3</div>
+				<% counter = 1 %>
+				<% Animal.where(environment: "Jungle").each do |animal| %>
+				<a href='<%= "/games/#{animal.id}" %>'><div class='level'><h1><%= counter %></h1></div>
+					<% counter += 1 %>
+					<% end %>
 			</article>
 		</div>
 
 		<div class='environment' id='savanna'>
 			<h2>Savanna</h2>
-			<button>All Levels</button>
-			<h4 class="current_level">You are on level: </h4>
 			<article class="levels clearfix clear">
-				<div class='level'>Level: 1</div>
-				<div class='level'>Level: 2</div>
-				<div class='level'>Level: 3</div>
+				<% counter = 1 %>
+				<% Animal.where(environment: "Savanna").each do |animal| %>
+				<a href='<%= "/games/#{animal.id}" %>'><div class='level'><h1><%= counter %></h1></div>
+					<% counter += 1 %>
+					<% end %>
 			</article>
 		</div>
 
 		<div class='environment' id='forest'>
 			<h2>Forest</h2>
-			<button>All Levels</button>
-			<h4 class="current_level">You are on level: </h4>
 			<article class="levels clearfix clear">
-				<div class='level'>Level: 1</div>
-				<div class='level'>Level: 2</div>
-				<div class='level'>Level: 3</div>
+				<% counter = 1 %>
+				<% Animal.where(environment: "Forest").each do |animal| %>
+				<a href='<%= "/games/#{animal.id}" %>'><div class='level'><h1><%= counter %></h1></div>
+					<% counter += 1 %>
+					<% end %>
 			</article>
-		</div>
 
-		<div class='environment' id='farm'>
-			<h2>Farm</h2>
-			<button>All Levels</button>
-			<h4 class="current_level">You are on level: </h4>
-			<article class="levels clearfix clear">
-				<div class='level'>Level: 1</div>
-				<div class='level'>Level: 2</div>
-				<div class='level'>Level: 3</div>
-			</article>
 		</div>
-
 	</section>
+
 </body>
 </html>

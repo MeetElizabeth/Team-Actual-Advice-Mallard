@@ -1,7 +1,9 @@
-<h1 class='hooray'>Congatulations! You Won!</h1>
-<h2 id='points'>Points: </h2>
+<h1 class='hooray'>Congratulations! You Made It!</h1>
+<h2 id='points'></h2>
+<h2 id='bonus_points'></h2>
+<h2 id='total_points'></h2>
 <h2>Hints</h2>
-<ol class='hints'>
+<ol id='hints'>
   <li class='hint first_hint'>First Hint: <br><%= @animal.fact_1 %></li>
   <li class='hint second_hint'>Second Hint: <br><%= @animal.fact_2 %></li>
   <li class='hint third_hint'>Third Hint: <br><%= @animal.fact_3 %></li>
@@ -11,16 +13,11 @@
 <div class="countdown-container">
   <span id="countdown"></span>
 </div>
-<div class="guess-area">
-  <% space_index = 1 %>
-  <% @animal.name.downcase.split('').each do |letter|  %>
-    <span class="blank-space" id="space-<%= space_index %>">_</span>
-    <% space_index += 1 %>
-  <% end %>
+<div class="guess-area sortable">
 </div>
 <br>
 <br>
-<div class="letter-bank">
+<div class="letter-bank sortable">
   <% index = 1 %>
   <% @playable_letters.each do |letter| %>
     <span class="letter" id="letter-<%= index %>"><%= letter %></span>
@@ -30,11 +27,9 @@
 <div class="hidden" style="display: none;">
 <div class="answer" id="<%= @animal.name.downcase %>"></div>
 <div class="animal" id="<%= @animal.id %>"></div>
-<div class="user" id="<%= current_user.id %>"></div>
 </div>
 <div>
   <button id="check-button">Check answer</button>
   <button><%= link_to 'Replay', game_path %></button>
   <button id="skip_hint_button">Skip To The Next Hint</button>
 </div>
-

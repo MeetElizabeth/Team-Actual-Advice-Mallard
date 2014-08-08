@@ -1,1 +1,18 @@
-<h1> Hello </h1>
+<div id='animals-header'>
+  <h1> My Animals </h1>
+</div>
+
+<% my_animals = current_user.animals %>
+
+<div id='animals-menu'>
+  <ul>
+  <% my_animals.group_by(&:environment).each do |key, group| %>
+      <li><a href="#"><span><%= key %></span></a></li>
+      <ul>
+    <% group.each do |animal| %>
+      <li><a href='<%= "/animals/#{animal.id}" %>'><div id='names'><%= animal['name'] %></div></a></li>
+    <% end %>
+      </ul>
+  <% end %>
+  </ul>
+</div>

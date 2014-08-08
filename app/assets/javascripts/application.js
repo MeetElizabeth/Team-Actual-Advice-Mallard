@@ -18,23 +18,32 @@
 var readyFunc = function() {
   console.log('Loaded, bro.');
 
-  showCurrentLevel();
-  $('body').on('click', '.level', showGames);
-  $('body').on('click', 'button', backToAllLevel);
-  $('body').on('click', '#skip_hint_button', skipHint);
-
-  gamePlay();
-  countdownTimer();
-  $('body').on('click', '#check-button', checkSolution);
-
+  // sidebar javascript
   sidebarOpen();
-
   $('.page-content').on('click', '#open-profile', openProfile);
   $('.profile-sidebar').on('click', '#close-profile', closeProfile);
+
+  // future javascript
+  // showCurrentLevel();
+  // $('body').on('click', '.level', showGames);
+  // $('body').on('click', '#button-main', backToAllLevel);
+
+  // gameplay javascript
+  $('body').on('click', '#skip_hint_button', skipHint);
+
+  // showPoints(timePoints);
+  if (location.pathname.length > 7){
+    moveLetters();
+    countdownTimer();
+    $('body').on('click', '#check-button', checkSolution);
+  }
 };
 
+// turbolinks workaround
 $(document).ready(readyFunc);
 $(document).on('page:load', readyFunc);
+
+
 
 function sidebarOpen() {
   var openButton = $('#open-profile');
@@ -64,58 +73,69 @@ function closeProfile() {
   $(openButton).show();
 }
 
-var currentLevel = 1;
-function showCurrentLevel (){
-	$('.current_level').append(currentLevel);
+// var currentLevel = 1;
+// function showCurrentLevel (){
+// 	$('.current_level').append(currentLevel);
+// }
+
+// function backToAllLevel (){
+// 	$(this).siblings('.game_list').hide();
+// 	$(this).siblings('.levels').show();
+// }
+
+
+// function showGames(){
+// 	var level = $(this);
+//
+// 	var environment = level.closest('.environment');
+// 	var gameList = $('<article class="game_list">');
+//
+// 	var game1 = $('<div class="games">').append($("<h1>").text("1"));
+// 	var game2 =	$('<div class="games">').append($("<h1>").text("2"));
+// 	var game3 =	$('<div class="games">').append($("<h1>").text("3"));
+//
+// 	level.parent().hide();
+// 	gameList.append(game1).append(game2).append(game3);
+// 	environment.append(gameList);
+// }
+
+function moveLetters() {
+  $('.sortable').sortable({
+    connectWith: "div"
+  });
 }
 
-function backToAllLevel (){
-	$(this).siblings('.game_list').hide();
-	$(this).siblings('.levels').show();
-}
 
-function showGames(){
-	var level = $(this);
+function showBonusAndTotalPoints () {
+  var bonusPointsHolder = $('#bonus_points');
+  var totalPointsHolder = $('#total_points');
+  var gamePoints = $('<span id="game-points">');
+  var pointsText = $('#game-points').text();
 
-	var environment = level.closest('.environment');
-	var gameList = $('<article class="game_list">');
-
-	var game1 = $('<div class="octagon">').append($("<span>").text("Game: 1"));
-	var game2 =	$('<div class="octagon">').append($("<span>").text("Game: 2"));
-	var game3 =	$('<div class="octagon">').append($("<span>").text("Game: 3"));
-
-	level.css('background', 'yellow').css('color', 'black')
-	level.parent().hide();
-	gameList.append(game1).append(game2).append(game3);
-	environment.append(gameList);
-}
-
-function gamePlay() {
-  var numLetters = $('.letter-bank').children().length;
-  var numSpaces = $('.guess-area').children().length;
-  var draggedLetter;
-  for (var i = 0; i < numLetters; i++) {
-    $('#letter-'+(i+1)+'').draggable({
-      cursor: 'move',
-      revert: true
-    })
+  if (clickCount === 0) {
+    bonusPointsHolder.text("Your Bonus Points: 30" );
+    gamePoints.text(parseInt(seconds_left + 30));
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  } else if (clickCount === 1) {
+    gamePoints.text(parseInt(seconds_left + 20));
+    bonusPointsHolder.text("Your Bonus Points: 20" );
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  } else if (clickCount === 2) {
+    gamePoints.text(parseInt(seconds_left + 10));
+    bonusPointsHolder.text("Your Bonus Points: 10" );
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  } else if (clickCount === 3) {
+    gamePoints.text(seconds_left);
+    bonusPointsHolder.text("Your Bonus Points: 0" );
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
   }
-  for (var b = 0; b < numSpaces; b++) {
-    $('#space-'+(b+1)+'').droppable({
-      accept: '.letter',
-      tolerance: 'fit',
-      drop: function (event, ui) {
-        var draggedLetter = ui.draggable.text();
-        $(this).replaceWith(ui.draggable);
-        if (numSpaces === $('.guess-area').children('.letter').length) {
-          checkSolution();
-        }
-      }
-    });
-  }
 }
 
-var gameCompleted = false;
+gameCompleted = false;
 
 function checkSolution() {
   var guessArea = $('.guess-area').children();
@@ -123,82 +143,88 @@ function checkSolution() {
   var guess = '';
   for (var i = 0; i < guessArea.length; i++) {
     guess += guessArea.eq(i).text();
-  };
+  }
   if (guess === answer) {
+    showBonusAndTotalPoints();
     gameCompleted = true;
-    var gameParams = {
-      game: {
-        points: 45,
-        animal_id: parseInt($('.animal').attr('id')),
-        user_id: parseInt($('.user').attr('id'))
-      }
-    }
-    $.ajax({
-      url: '/games',
-      type: 'post',
-      data: gameParams
-      })
   } else {
     console.log('idiot');
     alert('Try Again');
   }
 }
 
-points = 150;  //points
 function countdownTimer() {
   var target_time = 120;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
   var timer = setInterval(function () {
-      var seconds_left = (target_time - time_elapsed);
-
+      seconds_left = (target_time - time_elapsed);
       if (seconds_left >= 0) {
         countdown.innerText = "Time Left: " +seconds_left;
-
         if (seconds_left <= 120){
-          $('.first_hint').css('display', 'block');
+          showHints(0);
         }
         if ( seconds_left <= 90) {
-          $('.second_hint').css('display', 'block');
-          points -= 10;
+          showHints(1);
         }
         if ( seconds_left <= 60) {
-          $('.third_hint').css('display', 'block');
+          showHints(2);
         }
         if ( seconds_left <= 30) {
-          $('.image_hint').css('display', 'block');
+          showHints(3);
         }
         time_elapsed += 1;
         if (gameCompleted === true) {
           clearInterval(timer);
           $('.hooray').css('display', 'block');
+          showBonusAndTotalPoints ();
         }
       } else {
         clearInterval(timer);
       }
   }, 1000);
-
 }
 
-var clickCount = 0;
+clickCount = 0;
 function skipHint() {
   clickCount +=1;
   if (clickCount >= 0){
-    $('.first_hint').css('display', 'block');
+    showHints(0);
   }
   if (clickCount >= 1) {
-    $('.second_hint').css('display', 'block');
-    points -= 10;
+    showHints(1);
   }
   if (clickCount >= 2) {
-    $('.third_hint').css('display', 'block');
+    showHints(2);
   }
   if (clickCount >= 3) {
-    $('.image_hint').css('display', 'block');
+    showHints(3);
   }
 }
 
-function showPoints () {
-  var pointsHolder = $('#points');  // points
-  pointsHolder.append(points);
+function showHints(index) {
+  var hintsList = $('#hints').children();
+  hintsList.eq(index).addClass('show');
+}
+
+timePoints = 150;
+function showPoints (points) {
+  $('#points').text("Points: " + points);
+}
+
+function updateGame(score) {
+  var gameParams = {
+    game: {
+      points: score,
+      animal_id: parseInt($('.animal').attr('id')),
+    }
+  };
+  $.ajax({
+    url: '/games',
+    type: 'post',
+    data: gameParams
+  })
+    .done(
+      gameCompleted = false
+    );
 }
