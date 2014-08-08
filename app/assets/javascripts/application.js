@@ -145,8 +145,8 @@ function checkSolution() {
     guess += guessArea.eq(i).text();
   }
   if (guess === answer) {
-    showBonusAndTotalPoints();
     gameCompleted = true;
+    showBonusAndTotalPoints();
   } else {
     console.log('idiot');
     alert('Try Again');
@@ -177,8 +177,7 @@ function countdownTimer() {
         if (gameCompleted === true) {
           clearInterval(timer);
           $('.hooray').css('display', 'block');
-          showBonusAndTotalPoints ();
-        }
+                }
       } else {
         clearInterval(timer);
       }
