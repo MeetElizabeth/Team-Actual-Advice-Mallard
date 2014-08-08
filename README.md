@@ -1,9 +1,9 @@
 # Team Actual Advice Mallard
 
-** Peter Pak, Hoa Newton, & Elizabeth Abernethy **
+**Peter Pak, Hoa Newton, & Elizabeth Abernethy**
 
 ## Conceptual Overview:
-A children's game ....
+A children's spelling game. Click on a game on the main page to play an animal puzzle. Each puzzle represents a different animal from that environment. As you play, hints are displayed to help you guess the animal. To win, spell the animal's name correctly!
 
 
 #### User-Stories:
