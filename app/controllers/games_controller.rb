@@ -14,7 +14,6 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.user_id = current_user.id
     if @game.save
-      binding.pry
       total_points = []
       current_user.games.map do |game|
         total_points << game.points
