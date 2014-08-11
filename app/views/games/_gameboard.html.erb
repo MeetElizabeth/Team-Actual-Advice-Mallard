@@ -24,10 +24,14 @@
     <% index += 1 %>
   <% end %>
 </div>
+<br>
+<br>
+
 <div class="hidden" style="display: none;">
 <div class="answer" id="<%= @animal.name.downcase %>"></div>
 <div class="animal" id="<%= @animal.id %>"></div>
 </div>
+
 <div>
   <button id="check-button">Check answer</button>
   <button><%= link_to 'Replay', game_path %></button>
