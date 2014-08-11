@@ -380,7 +380,7 @@ div.guess-area {
   background-image: -moz-linear-gradient(
     right bottom,
     rgb(222,196,139) 50%,
-    rgb(230,204,147) 70%,
+    rgb(230,204,147) 70%
   );
   box-shadow: 0 1px 0 #b69c63, 1px 2px 0 #b69c63, 2px 3px 1px #b69c63;
 }
