@@ -239,15 +239,8 @@ button {
   vertical-align: center;
 }
 
-span.blank-space {
-  font-size: 120px;
-}
 
-.letter {
-  cursor: grab;
-	font-size: 55px;
-  font-weight: 700;
-}
+
 
 #main {
 	margin: 0 auto;
@@ -340,7 +333,6 @@ span {
   margin-right: 10px;
 }
 
-
 /* GAME HINTS */
 .hint {
 	display: none;
@@ -361,5 +353,34 @@ div.guess-area {
   border-style: dotted;
   border-width: 2px;
   height: 100px;
-  width: 320px;
+  width: 380px;
+}
+
+.letter {
+  margin-left: auto;
+  margin-right: auto;
+  width: 36px;
+  height: 36px;
+  margin: 3px;
+  text-indent: 12px;
+  line-height: 36px;
+  border: 1px #d6bc83 solid;
+  border-radius: 2px;
+  color: #000;
+  text-shadow: -1px -1px 1px rgb(40,40,40);
+  font-family: "NewsGoth Cn BT", Optima-Thin, "MS Gothic";
+  font-size: 24px;
+  background-image: -webkit-gradient(
+    linear,
+    right bottom,
+    left top,
+    color-stop(0.5, rgb(222,196,139)),
+    color-stop(0.7, rgb(230,204,147))
+  );
+  background-image: -moz-linear-gradient(
+    right bottom,
+    rgb(222,196,139) 50%,
+    rgb(230,204,147) 70%,
+  );
+  box-shadow: 0 1px 0 #b69c63, 1px 2px 0 #b69c63, 2px 3px 1px #b69c63;
 }
