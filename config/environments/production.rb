@@ -72,7 +72,7 @@ Rails.application.configure do
     password:            ENV["GMAIL_PASSWORD"],
     authentication:      'plain',
     enable_starttls_auto: true  }
-  config.action_mailer.default_url_options = { :host => 'http://secure-bayou-5911.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://spellingzoo.herokuapp.com' }
 
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
