@@ -86,14 +86,14 @@ function closeProfile() {
 
 // function showGames(){
 // 	var level = $(this);
-//
+
 // 	var environment = level.closest('.environment');
 // 	var gameList = $('<article class="game_list">');
-//
+
 // 	var game1 = $('<div class="games">').append($("<h1>").text("1"));
 // 	var game2 =	$('<div class="games">').append($("<h1>").text("2"));
 // 	var game3 =	$('<div class="games">').append($("<h1>").text("3"));
-//
+
 // 	level.parent().hide();
 // 	gameList.append(game1).append(game2).append(game3);
 // 	environment.append(gameList);
@@ -111,27 +111,23 @@ function showBonusAndTotalPoints () {
   var totalPointsHolder = $('#total_points');
   var gamePoints = $('<span id="game-points">');
   var pointsText = $('#game-points').text();
+  
+  function subfunction(bonusPoints) {
+    bonusPointsHolder.text("Your Bonus Points: " +bonusPoints );
+    gamePoints.text(parseInt(seconds_left + bonusPoints));
+    totalPointsHolder.empty();
+    totalPointsHolder.append('You Earned : ').append(gamePoints);
+    updateGame($('#game-points').text());
+  }
 
   if (clickCount === 0) {
-    bonusPointsHolder.text("Your Bonus Points: 30" );
-    gamePoints.text(parseInt(seconds_left + 30));
-    totalPointsHolder.append('You Earned : ').append(gamePoints);
-    updateGame($('#game-points').text());
+    subfunction(30);
   } else if (clickCount === 1) {
-    gamePoints.text(parseInt(seconds_left + 20));
-    bonusPointsHolder.text("Your Bonus Points: 20" );
-    totalPointsHolder.append('You Earned : ').append(gamePoints);
-    updateGame($('#game-points').text());
+    subfunction(20);
   } else if (clickCount === 2) {
-    gamePoints.text(parseInt(seconds_left + 10));
-    bonusPointsHolder.text("Your Bonus Points: 10" );
-    totalPointsHolder.append('You Earned : ').append(gamePoints);
-    updateGame($('#game-points').text());
+    subfunction(10);
   } else if (clickCount === 3) {
-    gamePoints.text(seconds_left);
-    bonusPointsHolder.text("Your Bonus Points: 0" );
-    totalPointsHolder.append('You Earned : ').append(gamePoints);
-    updateGame($('#game-points').text());
+    subfunction(0);
   }
 }
 
@@ -154,6 +150,7 @@ function checkSolution() {
 }
 
 function countdownTimer() {
+  clearInterval(timer);
   var target_time = 120;
   var time_elapsed = 0;
   var countdown = document.getElementById('countdown');
