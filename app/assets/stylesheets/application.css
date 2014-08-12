@@ -354,6 +354,8 @@ div.guess-area {
   border-width: 2px;
   height: 100px;
   width: 380px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .letter {

@@ -2,21 +2,21 @@
 <h2 id='points'></h2>
 <h2 id='bonus_points'></h2>
 <h2 id='total_points'></h2>
-<h2>Hints</h2>
+
+<h2>Your Hints</h2>
+
 <ol id='hints'>
-  <li class='hint first_hint'>First Hint: <br><%= @animal.fact_1 %></li>
-  <li class='hint second_hint'>Second Hint: <br><%= @animal.fact_2 %></li>
-  <li class='hint third_hint'>Third Hint: <br><%= @animal.fact_3 %></li>
-  <li class='hint image_hint'>Last Hint <br><%= image_tag(@animal.image, class: "animal-image") %></li>
+  <li class='hint first_hint'><h4>Hint #1: </h4><p><%= @animal.fact_1 %></p></li>
+  <li class='hint second_hint'><h4>Hint #2: </h4><p><%= @animal.fact_2 %></p></li>
+  <li class='hint third_hint'><h4>Hint #3: </h4><p><%= @animal.fact_3 %></p></li>
+  <li class='hint image_hint'><h4>Final Hint: </h4><p><%= image_tag(@animal.image, class: "animal-image") %></p></li>
 </ol>
 
-<div class="countdown-container">
-  <span id="countdown"></span>
-</div>
+
+
 <div class="guess-area sortable">
 </div>
-<br>
-<br>
+
 <div class="letter-bank sortable">
   <% index = 1 %>
   <% @playable_letters.each do |letter| %>
@@ -26,6 +26,10 @@
 </div>
 <br>
 <br>
+
+<div class="countdown-container">
+  <h1><span id="countdown"></span></h1>
+</div>
 
 <div class="hidden" style="display: none;">
 <div class="answer" id="<%= @animal.name.downcase %>"></div>

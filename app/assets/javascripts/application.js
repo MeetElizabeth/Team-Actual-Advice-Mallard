@@ -160,7 +160,7 @@ function countdownTimer() {
   var timer = setInterval(function() {
       seconds_left = (target_time - time_elapsed);
       if (seconds_left >= 0) {
-        countdown.innerText = "Time Left: " +seconds_left;
+        countdown.innerText = "Time Remaining: " +seconds_left;
         if (seconds_left <= 120){
           showHints(0);
         }
